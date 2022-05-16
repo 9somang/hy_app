@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
               decoration: BoxDecoration(
 
                 image: DecorationImage(
-                  image: AssetImage('assets/image/시그니처가로복구.png'),
+                  image: AssetImage('assets/image/시그니처_가로_배경제거.png'),
                   fit: BoxFit.contain
                 ),
               ),

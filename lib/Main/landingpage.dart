@@ -14,12 +14,12 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   @override
-  void initState() {
-    Timer(Duration(seconds: 3),(){
-      Get.offAll(LoginPage());
-    });
-    super.initState();
-  }
+  // void initState() {
+  //   Timer(Duration(seconds: 3),(){
+  //     Get.offAll(LoginPage());
+  //   });
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
   return Scaffold(
@@ -29,8 +29,12 @@ class _LandingPageState extends State<LandingPage> {
         Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Image.asset('assets/image/시그니처(세로).jpg',fit: BoxFit.contain)
-
+            child: Image.asset(
+                'assets/image/시그니처_세로_배경제거.png',
+                fit: BoxFit.contain,
+                height: 100,
+                width:  100,
+            ),
         ),
         CircularProgressIndicator()
       ],
