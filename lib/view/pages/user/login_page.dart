@@ -56,41 +56,41 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _loginForm() {
-    // 항상 return 타입은 최상위보호타입으로 잡아주는게좋음(widget)
-    return Form(
-      // 나중에 DB 서버에 한번에 날려야 하기 때문에 form안에 한꺼번에 감싸버려버려
-      key: _formkey,
-      child: Column(
-        children: [
-          CustomTextFormField(
-            hint: "UserId",
-            funValidator: validateUsername(),
-          ),
-          CustomTextFormField(
-            hint: "Password",
-            funValidator: validatePassword(),
-          ),
-          CustomElevatedButton(
-            text: "로그인",
-            funpageRoute: () {
-              if (_formkey.currentState!.validate()) {
-                Get.to(MainPage());
-                u.login("test", "test");
-              }
-            },
-          ),
-          TextButton(
-            onPressed: () {
-              Get.to(JoinPage());
-            },
-            child: Text(
-              "아직 회원가입이 안되어있나요?",
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   Widget _loginForm() {
+//     // 항상 return 타입은 최상위보호타입으로 잡아주는게좋음(widget)
+//     return Form(
+//       // 나중에 DB 서버에 한번에 날려야 하기 때문에 form안에 한꺼번에 감싸버려버려
+//       key: _formkey,
+//       child: Column(
+//         children: [
+//           CustomTextFormField(
+//             hint: "UserId",
+//             funValidator: validateUsername(),
+//           ),
+//           CustomTextFormField(
+//             hint: "Password",
+//             funValidator: validatePassword(),
+//           ),
+//           CustomElevatedButton(
+//             text: "로그인",
+//             funpageRoute: () {
+//               if (_formkey.currentState!.validate()) {
+//                 Get.to(MainPage());
+//                 u.login("test", "test");
+//               }
+//             },
+//           ),
+//           TextButton(
+//             onPressed: () {
+//               Get.to(JoinPage());
+//             },
+//             child: Text(
+//               "아직 회원가입이 안되어있나요?",
+//               textAlign: TextAlign.center,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
