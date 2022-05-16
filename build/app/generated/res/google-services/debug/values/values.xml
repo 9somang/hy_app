@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">7373634811-pht24aoi25r0epbs020sqr81hcm98qc0.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">7373634811</string>
+    <string name="google_api_key" translatable="false">AIzaSyALt_xg3tssyjW3gt2NQR3dltIjgBfUUuY</string>
+    <string name="google_app_id" translatable="false">1:7373634811:android:2a8aeabc7395367d33045e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyALt_xg3tssyjW3gt2NQR3dltIjgBfUUuY</string>
+    <string name="google_storage_bucket" translatable="false">hanyang-project-bea5e.appspot.com</string>
+    <string name="project_id" translatable="false">hanyang-project-bea5e</string>
+</resources>
