@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "7373634811",
+    "project_id": "hanyang-project-bea5e",
+    "storage_bucket": "hanyang-project-bea5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7373634811:android:2a8aeabc7395367d33045e",
+        "android_client_info": {
+          "package_name": "com.example.new_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7373634811-pht24aoi25r0epbs020sqr81hcm98qc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALt_xg3tssyjW3gt2NQR3dltIjgBfUUuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7373634811-pht24aoi25r0epbs020sqr81hcm98qc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
