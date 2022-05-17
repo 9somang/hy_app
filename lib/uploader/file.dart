@@ -31,6 +31,7 @@ class _FileUploadState extends State<FileUpload> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.indigo,
       ),
       body: Center(
         child: Container(

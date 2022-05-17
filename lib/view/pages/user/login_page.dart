@@ -87,7 +87,11 @@ class LoginPage extends StatelessWidget {
             child: Text(
               "아직 회원가입이 안되어있나요?",
               textAlign: TextAlign.center,
+
             ),
+            style: TextButton.styleFrom(
+              primary: Colors.indigo
+          ),
           ),
         ],
       ),

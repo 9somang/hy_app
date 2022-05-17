@@ -48,4 +48,27 @@ Future<void> uploadFile() async {
 //    print("123.message");
 //    print("error occur");
 //  }
+// }\
+
+//여러개의 파일 업로드
+// Future<void> uploadFiles() async {
+//   // file picker를 통해 파일 여러개 선택
+//   FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true);
+//
+//   if (result != null) {
+//     final filePaths = result.paths;
+//
+//     // 파일 경로를 통해 formData 생성
+//     var dio = Dio();
+//     var formData = FormData.fromMap({
+//       'files' : List.generate(filePaths,
+//               (index) => MultipartFile.fromFileSync(filePaths[index]!))
+//     });
+//
+//     // 업로드 요청
+//     final response = await dio.post('/upload', data: formData);
+//
+//   } else {
+//     // 아무런 파일도 선택되지 않음.
+//   }
 // }

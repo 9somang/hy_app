@@ -14,33 +14,40 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   @override
-  // void initState() {
-  //   Timer(Duration(seconds: 3),(){
-  //     Get.offAll(LoginPage());
-  //   });
-  //   super.initState();
-  // }
+  void initState() {
+    Timer(Duration(seconds: 3),(){
+      Get.offAll(LoginPage());
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    body: Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-                'assets/image/시그니처_세로_배경제거.png',
-                fit: BoxFit.contain,
-                height: 100,
-                width:  100,
-            ),
-        ),
-        CircularProgressIndicator()
-      ],
+  var scaffold = Scaffold(
+    backgroundColor: Colors.white,
+    body: Container(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50)
+              ),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                  'assets/image/시그니처_세로_3배.gif',
+                  fit: BoxFit.contain,
+                  height: 100,
+                  width:  100,
+              ),
+          ),
+          CircularProgressIndicator()
+        ],
+      ),
     )
 
     );
+  return scaffold;
   }
 }
 

@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
           title: Text('한양공고 취업게시판',style: TextStyle(fontFamily: 'GowunDodum'),),
           backgroundColor: Colors.indigo,
           centerTitle: true,
-
+          elevation: 0.0,
     ),
       drawer: Drawer(
         child:  ListView(

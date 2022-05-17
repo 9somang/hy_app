@@ -14,18 +14,26 @@ class _JobHuntingState extends State<JobHunting> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("구직"),
+        title: Text("구직",
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.indigo
+          ),
+        ),
         leading: Container(),
-        elevation: 0.0,
+        elevation: 2,
         actions: <Widget>[
           IconButton(
             onPressed: (){
               Get.to(WritePage());
             },
             icon: Icon(Icons.add),
+            color: Colors.indigo,
           )
         ],
+
       ),
       body: ListView.separated(
         itemCount: 20,

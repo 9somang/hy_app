@@ -14,16 +14,23 @@ class _FreeNoticeState extends State<FreeNotice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("자유게시판"),
+        title: Text("자유게시판",
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.indigo
+          ),
+        ),
         leading: Container(),
-        elevation: 0.0,
+        elevation: 2,
         actions: <Widget>[
           IconButton(
             onPressed: (){
               Get.to(WritePage());
             },
             icon: Icon(Icons.add),
+            color: Colors.indigo,
           )
         ],
       ),
