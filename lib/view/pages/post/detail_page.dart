@@ -81,7 +81,7 @@ class DetailPage extends StatelessWidget {
                                     Radius.circular(4),
                       ),
                     ),
-                    child: Text("업로드된 파일", //버튼으로 수정
+                    child: Text("업로드된 파일", // 추후에버튼으로 수정
                       style: TextStyle(
                         height: 1.7,
                       ),
