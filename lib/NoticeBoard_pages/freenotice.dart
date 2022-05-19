@@ -16,7 +16,7 @@ class _FreeNoticeState extends State<FreeNotice> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("자유게시판",
+        title: Text("자유 게시판",
           style: TextStyle(
               fontSize: 20,
               color: Colors.indigo
@@ -39,10 +39,11 @@ class _FreeNoticeState extends State<FreeNotice> {
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              Get.to(DetailPage(index), arguments: "arguments 속성 테스트");
+              Get.to(DetailPage(index));
             },
-            title: Text("제목1"),
-            leading: Text("1"),
+            title: Text("제목1234"),
+            subtitle: Text("0000년00월00일"),
+            leading: Text("id"),
           );
         },
         separatorBuilder: (context, index) {

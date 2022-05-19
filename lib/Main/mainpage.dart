@@ -10,9 +10,7 @@ import '../view/pages/user/login_page.dart';
 import '../view/pages/user/userinfo.dart';
 import '';
 
-
 class MainPage extends StatefulWidget {
-
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -21,20 +19,20 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-      label: '취업의뢰서',
-      icon: Icon(Icons.poll)
+        label: '취업게시판',
+        icon: Icon(Icons.work)
     ),
     BottomNavigationBarItem(
         label: '구인게시판',
         icon: Icon(Icons.person_add_alt_1)
     ),
     BottomNavigationBarItem(
-        label: '구직게시판',
-        icon: Icon(Icons.emoji_people),
+      label: '구직게시판',
+      icon: Icon(Icons.emoji_people),
     ),
     BottomNavigationBarItem(
         label: '자유게시판',
-        icon: Icon(Icons.apps_outlined)
+        icon: Icon(Icons.wysiwyg)
     ),
   ];
 
@@ -45,51 +43,62 @@ class _MainPageState extends State<MainPage> {
     FreeNotice()
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('한양공고 취업게시판',style: TextStyle(fontFamily: 'GowunDodum'),),
-          backgroundColor: Colors.indigo,
-          centerTitle: true,
-          elevation: 0.0,
-    ),
+        title: Text('한양공업고등학교',
+            style: TextStyle(
+              fontFamily: 'GowunDodum',
+              fontSize: 24,
+            )),
+        backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0.0,
+      ),
       drawer: Drawer(
-        child:  ListView(
+        child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            SizedBox(
+            UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage('assets/image/심벌마크_평면__배경제거.png'),
+                  backgroundColor: Colors.white,
+                ),
+                accountName: Text('user ID'), // 아이디 연동
+                accountEmail: Text('user@email.com'), // 이메일 연동
+               decoration: BoxDecoration(
+                    color: Colors.indigo,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30.0),
+                      bottomRight: Radius.circular(30.0)
+                    )
+               ),
 
             ),
             ListTile(
-              leading: Icon(Icons.assignment_ind,
-                  color: Colors.grey[900]
-              ),
+              leading: Icon(Icons.exit_to_app, color: Colors.grey[900]),
               title: Text('로그아웃'),
-              onTap: (){
-                  Get.to(LoginPage());
+              onTap: () {
+                _logoutDialog(context);
               },
               trailing: Icon(Icons.arrow_forward_ios),
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.person,
-                  color: Colors.grey[900]
-              ),
-              title: Text('회원정보보기'),
-              onTap: (){
+              leading: Icon(Icons.person_outline, color: Colors.grey[900]),
+              title: Text('회원 정보'),
+              onTap: () {
                 Get.to(UserInfo());
               },
               trailing: Icon(Icons.arrow_forward_ios),
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.question_answer,
-                  color: Colors.grey[900]
-              ),
-              title: Text('자주 묻는 질문'),
-              onTap: (){
+              leading:
+                  Icon(Icons.account_tree_outlined, color: Colors.grey[900]),
+              title: Text('기타 정보'),
+              onTap: () {
                 Get.to(Questions());
               },
               trailing: Icon(Icons.arrow_forward_ios),
@@ -98,7 +107,6 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
@@ -123,3 +131,38 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
+void _logoutDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("로그아웃 하시겠습니까?"),
+          content: SingleChildScrollView(
+            child: ListBody(
+                children: <Widget>[
+                  Text('로그아웃 시 로그인 화면으로 이동합니다.')
+                ]
+            ),
+          ),
+          actions: [
+            FlatButton(
+              child: Text("예"),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Get.to(LoginPage());
+              },
+            ),
+            FlatButton(
+              child: Text("아니요"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
+}
+

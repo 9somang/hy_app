@@ -15,7 +15,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3),(){
+    Timer(Duration(seconds: 4),(){
       Get.offAll(LoginPage());
     });
     super.initState();

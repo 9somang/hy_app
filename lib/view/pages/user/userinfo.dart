@@ -7,7 +7,7 @@ class UserInfo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('유저 정보 보기'),
+        title: Text('회원 정보 보기'),
         backgroundColor: Colors.indigo,
       ),
     );

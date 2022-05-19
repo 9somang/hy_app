@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
+import 'package:new_project/view/pages/post/comment_page.dart';
 import 'package:new_project/view/pages/post/update_page.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:new_project/view/pages/post/write_page.dart';
 
 class DetailPage extends StatelessWidget {
   final int id;
@@ -17,7 +19,7 @@ class DetailPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.indigo,
           elevation: 0.0,
-          title: Text("상세 페이지"),
+          title: Text("글 상세 페이지"),
           centerTitle: true,
         ),
 
@@ -41,7 +43,7 @@ class DetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        // Get.to(CommentPage());
+                        Get.to(cmtpages());
                       },
                       child: Text("댓글")
                   ),
@@ -52,7 +54,7 @@ class DetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        Get.off(MainPage()); // 상태관리로 갱신 시킬 수 있음.
+                        _deleteDialog(context); // 상태관리로 갱신 시킬 수 있음.
                       },
                       child: Text("삭제")
                   ),
@@ -89,7 +91,7 @@ class DetailPage extends StatelessWidget {
               SizedBox(height:10),
               Expanded(
                   child: SingleChildScrollView(
-                    child: Text("글 내용" * 500),
+                    child: Text("글의 내용 " * 500),
                   )
               ),
             ],
@@ -97,4 +99,39 @@ class DetailPage extends StatelessWidget {
         )
     );
   }
+}
+
+
+void _deleteDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("정말로 게시물을 삭제하시겠습니까?"),
+          content: SingleChildScrollView(
+            child: ListBody(
+                children: <Widget>[
+                  Text('게시물을 삭제하면 되돌릴 수 없습니다.')
+                ]
+            ),
+          ),
+          actions: [
+            FlatButton(
+              child: Text("예"),
+              onPressed: () {
+                Navigator.of(context).pop(); // 저장소에서 해당 게시물삭제
+                _deleteDialog(context);
+                Get.to(MainPage());
+              },
+            ),
+            FlatButton(
+              child: Text("아니요"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
 }

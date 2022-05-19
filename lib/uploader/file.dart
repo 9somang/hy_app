@@ -39,9 +39,12 @@ class _FileUploadState extends State<FileUpload> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ElevatedButton(
-                onPressed: _pickFiles,
-                child: Text("파일 선택"),
-              ),
+                  onPressed: _pickFiles,
+                  child: Text("파일 선택"),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                  )),
               // Elevated Button
               Container(
                 decoration: BoxDecoration(
@@ -49,14 +52,13 @@ class _FileUploadState extends State<FileUpload> {
                       image: AssetImage('assets/image/시그니처(세로).jpg'),
                       fit: BoxFit.contain,
                       colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.2),
-                          BlendMode.dstATop)),
+                          Colors.black.withOpacity(0.3), BlendMode.dstATop)),
                   border: Border.all(
-                    width: 0.5,
+                    width: 0.3,
                   ),
                 ),
                 width: 350,
-                height: 500,
+                height: 450,
 
                 //오버플로우로 인한 뷰에러 방지 !!!!
                 child: Scrollbar(
@@ -69,7 +71,7 @@ class _FileUploadState extends State<FileUpload> {
                           //업로드한 파일 출력 리스트타일
                           ? const ListTile(
                               title: Text(
-                                  "파일을 업로드해주세요! - (한 번에 여러 파일을 업로드할 수 있습니다)"))
+                                  "파일을 선택해주세요! - (한 번에 여러 파일을 업로드할 수 있습니다)"))
                           : ListTile(
                               title: Text(_files.elementAt(index).name),
                               trailing: IconButton(
@@ -95,6 +97,10 @@ class _FileUploadState extends State<FileUpload> {
                   // 업로드한 파일 writepage에 출력하기
                 },
                 child: Text("파일 업로드"),
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                ),
               ),
             ],
           ),

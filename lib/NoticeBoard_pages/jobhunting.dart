@@ -16,7 +16,7 @@ class _JobHuntingState extends State<JobHunting> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("구직",
+        title: Text("구직 게시판",
           style: TextStyle(
               fontSize: 20,
               color: Colors.indigo
@@ -40,10 +40,11 @@ class _JobHuntingState extends State<JobHunting> {
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              Get.to(DetailPage(index), arguments: "arguments 속성 테스트");
+              Get.to(DetailPage(index));
             },
-            title: Text("제목1"),
-            leading: Text("1"),
+            title: Text("제목1234"),
+            subtitle: Text("0000년00월00일"),
+            leading: Text("id"),
           );
         },
         separatorBuilder: (context, index) {

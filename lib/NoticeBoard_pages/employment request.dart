@@ -16,7 +16,7 @@ class _EmploymentrequestState extends State<Employmentrequest> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("취업게시판",
+        title: Text("취업 게시판",
             style: TextStyle(
               fontSize: 20,
               color: Colors.indigo
@@ -39,10 +39,11 @@ class _EmploymentrequestState extends State<Employmentrequest> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
-                Get.to(DetailPage(index), arguments: "arguments 속성 테스트");
+                Get.to(DetailPage(index));
               },
-              title: Text("제목1"),
-              leading: Text("1"),
+              title: Text("글 제목"),
+              subtitle: Text("작성자 : TEST"),
+              leading: Text("yy_mm_dd"),
             );
           },
           separatorBuilder: (context, index) {
