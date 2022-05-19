@@ -16,7 +16,7 @@ class _EmploymentrequestState extends State<Employmentrequest> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("취업의뢰서",
+        title: Text("취업게시판",
             style: TextStyle(
               fontSize: 20,
               color: Colors.indigo

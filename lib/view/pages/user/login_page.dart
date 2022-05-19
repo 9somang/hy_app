@@ -26,10 +26,10 @@ class LoginPage extends StatelessWidget {
         child: ListView(
           children: [
             Container(
-              height: 80,
-              width: 10,
+              height: 90,
+              width: 50,
               margin: EdgeInsets.all(1),
-              padding: EdgeInsets.fromLTRB(0, 15, 0,0),
+              padding: EdgeInsets.fromLTRB(0, 15, 100,100),
               decoration: BoxDecoration(
 
                 image: DecorationImage(
@@ -40,8 +40,8 @@ class LoginPage extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              width: 100,
-              height: 60,
+              width: 170,
+              height: 100,
               child: Text(
                 "로그인",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
