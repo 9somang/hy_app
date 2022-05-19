@@ -28,11 +28,15 @@ class DetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("글제목",
+              Text("글 제목",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)
+              ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
+              Divider(),
+              Container(
+                child: Text("yy-mm-dd"),
               ),
               Container(
-                child: Text("업로드된 파일: "),
+                child: Text("작성자 : ID"),
               ),
               Divider(),
               Row(
@@ -77,7 +81,7 @@ class DetailPage extends StatelessWidget {
                                     Radius.circular(4),
                       ),
                     ),
-                    child: Text("작성자 : $id",
+                    child: Text("업로드된 파일", //버튼으로 수정
                       style: TextStyle(
                         height: 1.7,
                       ),
