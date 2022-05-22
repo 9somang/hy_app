@@ -93,8 +93,7 @@ class _FileUploadState extends State<FileUpload> {
               ElevatedButton(
                 onPressed: () {
                   Get.back();
-                  // 나중에 파일 업로드 요청 보내는 자리
-                  // 업로드한 파일 writepage에 출력하기
+                  postNotice(pickFiles);
                 },
                 child: Text("파일 업로드"),
                 style: ButtonStyle(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_project/controller/user_controller.dart';
-import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../Main/mainpage.dart';
 import '../../components/custom_elevated_button.dart';
@@ -10,11 +8,6 @@ import 'Join_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
-
-  UserController u = Get.put(UserController());
-
-  final _username = TextEditingController();
-  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +41,7 @@ class LoginPage extends StatelessWidget {
               width: 170,
               height: 100,
               child: Text(
-                "로그인 ${u.isLogin}",
+                "로그인",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
 
               ),
@@ -69,12 +62,10 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(
-            controller: _username,
             hint: "Username",
             funValidator: validateUsername(),
           ),
           CustomTextFormField(
-            controller: _password,
             hint: "Password",
             funValidator: validatePassword(),
           ),
@@ -83,12 +74,6 @@ class LoginPage extends StatelessWidget {
             funpageRoute: () async{
               Get.to(MainPage()); // 전송 테스트 시에 이부분 주석처리
               if (_formkey.currentState!.validate()) {
-                String token = await u.login(_username.text.trim(),_password.text.trim());
-                if(token !="-1"){
-                    print("토큰 정상적으로 받음");
-                } else {
-                  print("토큰 못받음");            // Get.snackber("로그인실패");
-                }
               }
             },
           ),

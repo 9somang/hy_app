@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/NoticeBoard_pages/freenotice.dart';
-import 'package:new_project/controller/user_controller.dart';
 import 'package:new_project/view/pages/user/anotherinfo.dart';
 import '../NoticeBoard_pages/employment request.dart';
 import '../NoticeBoard_pages/jobhunting.dart';
 import '../NoticeBoard_pages/jobopening.dart';
-import '../view/pages/user/Join_page.dart';
 import '../view/pages/user/login_page.dart';
 import '../view/pages/user/userinfo.dart';
 
@@ -16,7 +14,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  UserController u = Get.find(); // u.logout (157 line) 작동안함
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(

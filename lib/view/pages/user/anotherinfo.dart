@@ -11,7 +11,7 @@ class Questions extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               margin: EdgeInsets.all(10),
