@@ -11,7 +11,6 @@ class UserRepository {
     print(loginReqDto.toJson());
     Response response = await _userProvider.login(loginReqDto.toJson());
     dynamic headers = response.headers;
-
     if (headers["authorization"] == null) {
       return "-1";
     } else {

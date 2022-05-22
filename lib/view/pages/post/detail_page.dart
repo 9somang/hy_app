@@ -33,10 +33,10 @@ class DetailPage extends StatelessWidget {
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
               Container(
-                child: Text("yy-mm-dd"),
+                child: Text("yyyy-mm-dd"),
               ),
               Container(
-                child: Text("작성자 : ID"),
+                child: Text("작성자 : _username"),
               ),
               Divider(),
               Row(
@@ -47,7 +47,7 @@ class DetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        Get.to(cmtpages());
+                        // Get.to(cmtpages());
                       },
                       child: Text("댓글")
                   ),

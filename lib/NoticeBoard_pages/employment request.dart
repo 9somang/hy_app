@@ -41,9 +41,17 @@ class _EmploymentrequestState extends State<Employmentrequest> {
               onTap: () {
                 Get.to(DetailPage(index));
               },
-              title: Text("글 제목"),
-              subtitle: Text("작성자 : TEST"),
-              leading: Text("yy_mm_dd"),
+              title: Text(
+                "취업게시판 글 제목",
+                style: TextStyle(fontSize: 17),
+              ),
+              subtitle: Text("작성자 : {_username}"
+              ,style: TextStyle(fontSize: 13),
+              ),
+              leading: Text(
+                  "{yyyy_mm_dd}",
+                  style: TextStyle(fontSize: 8),
+              ),
             );
           },
           separatorBuilder: (context, index) {

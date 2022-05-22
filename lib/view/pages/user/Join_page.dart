@@ -5,7 +5,7 @@ import '../../components/custom_elevated_button.dart';
 import '../../components/custom_text_form_field.dart';
 import 'login_page.dart';
 
-
+// 로그인이랑 똑같이 만들기 ( 상태관리 필요없음 )
 class JoinPage extends StatelessWidget {
 
   final _formkey = GlobalKey<FormState>();
@@ -61,7 +61,7 @@ class JoinPage extends StatelessWidget {
            child: Column(
              children: [
                CustomTextFormField(
-                 hint: "UserId",
+                 hint: "UserName",
                  funValidator: validateUsername(),
                ),
                CustomTextFormField(

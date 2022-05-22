@@ -42,9 +42,17 @@ class _JobOpeningState extends State<JobOpening> {
             onTap: () {
               Get.to(DetailPage(index));
             },
-            title: Text("제목1234"),
-            subtitle: Text("0000년00월00일"),
-            leading: Text("id"),
+            title: Text(
+              "구인게시판 글 제목",
+              style: TextStyle(fontSize: 17),
+            ),
+            subtitle: Text("작성자 : {_username}"
+              ,style: TextStyle(fontSize: 13),
+            ),
+            leading: Text(
+              "{yyyy_mm_dd}",
+              style: TextStyle(fontSize: 8),
+            ),
           );
         },
         separatorBuilder: (context, index) {
