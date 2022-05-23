@@ -80,7 +80,7 @@ class JoinPage extends StatelessWidget {
                    funpageRoute: () {
                      if( _formkey.currentState!.validate()) {
                        Get.to(LoginPage());
-                        _
+
                      }
                    },
                ),
