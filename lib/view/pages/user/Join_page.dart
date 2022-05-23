@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/utill/validator_util.dart';
+import '../../../controllers/controller.dart';
 import '../../components/custom_elevated_button.dart';
 import '../../components/custom_text_form_field.dart';
 import 'login_page.dart';
@@ -12,6 +13,8 @@ class JoinPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _controller = Get.find<Controller>();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -77,6 +80,7 @@ class JoinPage extends StatelessWidget {
                    funpageRoute: () {
                      if( _formkey.currentState!.validate()) {
                        Get.to(LoginPage());
+                        _
                      }
                    },
                ),

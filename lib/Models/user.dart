@@ -8,7 +8,7 @@ class Usermodels {
     required this.id,
     required this.username,
     required this.password,
-    this.email
+    required this.email
   });
 
 //
