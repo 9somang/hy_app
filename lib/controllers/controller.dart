@@ -21,7 +21,7 @@ class Controller extends GetxController {
 
       userjoin.add(
         Usermodels(
-            id: _Usermodels.id,
+            userid: _Usermodels.userid,
             username: _Usermodels.username,
             password: _Usermodels.password,
             email: _Usermodels.email),
