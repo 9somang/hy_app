@@ -33,12 +33,12 @@ class DetailPage extends StatelessWidget {
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
               Container(
-                child: Text("yyyy-mm-dd"),
+                child: Text("작성일 : yyyy-mm-dd"),
               ),
               Container(
                 child: Text("작성자 : _username"),
               ),
-              Divider(),
+              SizedBox(height: 5),
               Row(
                 children: [
                   ElevatedButton(
@@ -81,18 +81,20 @@ class DetailPage extends StatelessWidget {
                                     Radius.circular(4),
                       ),
                     ),
-                    child: Text("업로드된 파일", // 추후에버튼으로 수정
-                      style: TextStyle(
-                        height: 1.7,
+                    child: OutlineButton(
+                      onPressed: () {
+                        _DownloadDialog(context);
+                        },
+                      child: Text("업로드 된 파일 확인",
+                      style:TextStyle(fontSize: 12),
                       ),
-                      textAlign: TextAlign.center,
                     ),
                       width: 160,
                       height: 30,
                     ),
                 ],
               ),
-              SizedBox(height:10),
+              SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(
                     child: Text("글의 내용 " * 500),
@@ -139,3 +141,39 @@ void _deleteDialog(BuildContext context) {
         );
       });
 }
+
+
+
+void _DownloadDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("파일을 다운로드 하시겠습니까?"),
+          content: SingleChildScrollView(
+            child: ListBody(
+                children: <Widget>[
+                  Text('{upload_file.path}을(를) \n다운로드 합니다.')
+                ]
+            ),
+          ),
+          actions: [
+            FlatButton(
+              child: Text("다운로드"),
+              onPressed: () {
+                Navigator.of(context).pop();
+                //다운로드 실행
+              },
+            ),
+            FlatButton(
+              child: Text("아니오"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
+}
+
