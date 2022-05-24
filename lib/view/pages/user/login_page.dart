@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_project/controllers/usercontroller.dart';
+import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../Main/mainpage.dart';
@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                 if (token != "-1") {
                   print("토큰 정상적으로 받았음");
                 }else {
-                  print("토큰 못받음");
+                  Get.snackbar("로그인 실패", "다시 시도해보세요");
                 }
               }
             },

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/validator_util.dart';
-import '../../../controllers/usercontroller.dart';
+import '../../../controllers/user_controller.dart';
 import '../../components/custom_elevated_button.dart';
 import '../../components/custom_text_form_field.dart';
 import 'login_page.dart';
