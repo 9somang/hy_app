@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/domain/user/user_repository.dart';
-import 'package:new_project/utill/flutterToken.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../controllers/usercontroller.dart';
 import '../../components/custom_elevated_button.dart';
@@ -90,7 +89,6 @@ class JoinPage extends StatelessWidget {
                    funpageRoute: () {
                      if( _formkey.currentState!.validate()) {
                        u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
-
                      }
 
                    },

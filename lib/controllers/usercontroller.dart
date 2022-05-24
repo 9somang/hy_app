@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:new_project/domain/user/user_repository.dart';
-import 'package:new_project/utill/flutterToken.dart';
 import 'package:new_project/utill/jwt.dart';
 
 class UserController extends GetxController {
@@ -14,7 +13,6 @@ class UserController extends GetxController {
     }
     return token;
   }
-
 
 
   Future<void> register(String username, String password, String email) async {
