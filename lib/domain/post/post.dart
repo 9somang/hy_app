@@ -1,26 +1,31 @@
+
+import 'package:intl/intl.dart';
+
 import '../user/user.dart';
 
-class Post {
-  final int? id;
+class Post{
   final String? title;
   final String? content;
   final User? user;
+  DateTime? created;
+  DateTime? updated;
 
-
-  Post({
-    this.id,
-    this.title,
-    this.content,
-    this.user,
-  });
+  Post(
+      {
+        this.title,
+        this.content,
+        this.created,
+        this.updated,
+        this.user
+      });
 
 
   Post.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        title = json['title'],
+      : title = json['title'],
         content = json['content'],
-        user = User.fromJson(json["user"]);
+        user = User.fromJson(json["user"]),
+        created = DateFormat("yyyy-mm-dd").parse(json['created']),
+        updated = DateFormat("yyyy-mm-dd").parse(json['updated']);
+
 }
-
-
 

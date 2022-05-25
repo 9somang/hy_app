@@ -10,6 +10,7 @@ import 'Join_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
+
   final UserController u = Get.put(UserController());
 
   final _username = TextEditingController();
@@ -47,7 +48,7 @@ class LoginPage extends StatelessWidget {
               width: 170,
               height: 100,
               child: Text(
-                "로그인",
+                "로그인${u.isLogin}",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
 
               ),
@@ -81,13 +82,12 @@ class LoginPage extends StatelessWidget {
             text: "로그인",
             funpageRoute: () async{
               if (_formkey.currentState!.validate()) {
-                // Get.to(MainPage());// 전송 테스트 시에 이부분 주석처리
-
-                String token = await u.login(_username.text.trim(), _password.text.trim());
+                String token =
+                    await u.login(_username.text.trim(), _password.text.trim());
                 if (token != "-1") {
-                  print("토큰 정상적으로 받았음");
+                  Get.to(() => MainPage());
                 }else {
-                  Get.snackbar("로그인 실패", "다시 시도해보세요");
+                  Get.snackbar("로그인 실패", "로그인을 실패하였습니다");
                 }
               }
             },

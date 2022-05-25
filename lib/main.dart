@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:new_project/Main/landingpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'Main/mainpage.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

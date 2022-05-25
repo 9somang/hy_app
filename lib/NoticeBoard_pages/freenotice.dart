@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:new_project/controllers/freenotice_controller.dart';
 import '../view/pages/post/detail_page.dart';
 import '../view/pages/post/write_page.dart';
 
@@ -12,6 +12,8 @@ class FreeNotice extends StatefulWidget {
 class _FreeNoticeState extends State<FreeNotice> {
   @override
   Widget build(BuildContext context) {
+    FreenoticeController f = Get.put(FreenoticeController());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -34,15 +36,15 @@ class _FreeNoticeState extends State<FreeNotice> {
           )
         ],
       ),
-      body: ListView.separated(
-        itemCount: 20,
+      body: Obx(()=> ListView.separated(
+        itemCount: f.posts.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
               Get.to(DetailPage(index));
             },
             title: Text(
-              "자유게시판 글 제목",
+              "${f.posts[index].title}",
               style: TextStyle(fontSize: 17),
             ),
             subtitle: Text("작성자 : {_username}"
@@ -57,7 +59,7 @@ class _FreeNoticeState extends State<FreeNotice> {
         separatorBuilder: (context, index) {
           return Divider();
         },
-      ),
+      )),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/controllers/jobopen_controller.dart';
 
+import '../controllers/post_controller.dart';
 import '../view/pages/post/detail_page.dart';
 import '../view/pages/post/write_page.dart';
 
@@ -13,6 +15,8 @@ class JobOpening extends StatefulWidget {
 class _JobOpeningState extends State<JobOpening> {
   @override
   Widget build(BuildContext context) {
+    JobopenController jopen = Get.put(JobopenController());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -36,14 +40,14 @@ class _JobOpeningState extends State<JobOpening> {
         ],
       ),
       body: ListView.separated(
-        itemCount: 20,
+        itemCount: jopen.posts.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
               Get.to(DetailPage(index));
             },
             title: Text(
-              "구인게시판 글 제목",
+              "${jopen.posts[index].title}",
               style: TextStyle(fontSize: 17),
             ),
             subtitle: Text("작성자 : {_username}"

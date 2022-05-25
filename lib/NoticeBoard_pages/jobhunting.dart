@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/controllers/jobhunt_controller.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
 
+import '../controllers/post_controller.dart';
 import '../view/pages/post/detail_page.dart';
 
 class JobHunting extends StatefulWidget {
@@ -12,6 +14,8 @@ class JobHunting extends StatefulWidget {
 class _JobHuntingState extends State<JobHunting> {
   @override
   Widget build(BuildContext context) {
+    JobhuntController jhunt = Get.put(JobhuntController());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -36,14 +40,14 @@ class _JobHuntingState extends State<JobHunting> {
 
       ),
       body: ListView.separated(
-        itemCount: 20,
+        itemCount: jhunt.posts.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
               Get.to(DetailPage(index));
             },
             title: Text(
-              "구직게시판 글 제목",
+              "${jhunt.posts[index].title}",
               style: TextStyle(fontSize: 17),
             ),
             subtitle: Text("작성자 : {_username}"

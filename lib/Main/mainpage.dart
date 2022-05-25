@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:new_project/NoticeBoard_pages/freenotice.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/view/pages/user/anotherinfo.dart';
-import '../NoticeBoard_pages/employment request.dart';
+import '../NoticeBoard_pages/jobnotice.dart';
 import '../NoticeBoard_pages/jobhunting.dart';
 import '../NoticeBoard_pages/jobopening.dart';
 import '../view/pages/user/login_page.dart';
@@ -36,20 +36,20 @@ class _MainPageState extends State<MainPage> {
   ];
 
   List pages = [
-    Employmentrequest(),
-    JobHunting(),
+    Jobnotice(),
     JobOpening(),
+    JobHunting(),
     FreeNotice()
   ];
 
   @override
   Widget build(BuildContext context) {
     // put은 없으면 만들고, 있으면 찾는다. 이미 만들었기때문에 find.
-    UserController u = Get.find();
+    final UserController u = Get.put(UserController());
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('한양공업고등학교${u.isLogin}',
+        title: Text('로그인상태:${u.isLogin}', // 한양공업고등학교
             style: TextStyle(
               fontFamily: 'GowunDodum',
               fontSize: 24,
@@ -136,7 +136,7 @@ class _MainPageState extends State<MainPage> {
 
 
 void _logoutDialog(BuildContext context) {
-  UserController u = Get.find();
+  // UserController u = Get.find();
   showDialog(
       context: context,
       barrierDismissible: false,
@@ -156,7 +156,7 @@ void _logoutDialog(BuildContext context) {
               onPressed: () {
                 Navigator.of(context).pop();
                 Get.to(LoginPage());
-                u.logout;
+                // u.logout;
               },
             ),
             FlatButton(
