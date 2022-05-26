@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_project/NoticeBoard_pages/freenotice.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/view/pages/user/anotherinfo.dart';
 import '../NoticeBoard_pages/jobnotice.dart';
@@ -29,17 +28,12 @@ class _MainPageState extends State<MainPage> {
       label: '구직게시판',
       icon: Icon(Icons.emoji_people),
     ),
-    BottomNavigationBarItem(
-        label: '자유게시판',
-        icon: Icon(Icons.wysiwyg)
-    ),
   ];
 
   List pages = [
     Jobnotice(),
     JobOpening(),
-    JobHunting(),
-    FreeNotice()
+    JobHunting()
   ];
 
   @override
@@ -155,7 +149,7 @@ void _logoutDialog(BuildContext context) {
               child: Text("예"),
               onPressed: () {
                 Navigator.of(context).pop();
-                Get.to(LoginPage());
+                Get.offAll(LoginPage());
                 // u.logout;
               },
             ),

@@ -41,16 +41,7 @@ class DetailPage extends StatelessWidget {
               SizedBox(height: 5),
               Row(
                 children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo,
-                        onPrimary: Colors.white,
-                      ),
-                      onPressed: () {
-                        // Get.to(cmtpages());
-                      },
-                      child: Text("댓글")
-                  ),
+
                   SizedBox(width: 7),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
