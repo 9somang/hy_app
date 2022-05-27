@@ -14,10 +14,11 @@ class JobnoRepository {
     Response response = await _jobnoProvider.findAllJobNotice();
     dynamic body = response.body;
     print(convertUtf8ToObject(body)); // 응답되는 값 안깨지는지 확인
-    CMRespDto cmRespDto = CMRespDto.fromJson(response.body);
-    //print(cmRespDto.code);
-    //print(cmRespDto.msg);
-    //print(cmRespDto.data.runtimeType);
+    dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+    print(cmRespDto.code);
+    print(cmRespDto.msg);
+    print(cmRespDto.data.runtimeType);
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
