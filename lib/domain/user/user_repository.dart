@@ -11,7 +11,7 @@ class UserRepository {
   final UserProvider _userProvider = UserProvider();
 
   Future<void> register(
-      String username, String password, String email ) async {
+      String username, String password, String email) async {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());

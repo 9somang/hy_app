@@ -16,7 +16,8 @@ class User{
       this.password,
       this.email,
       this.created,
-      this.updated});
+      this.updated
+      });
 
 
     User.fromJson(Map<String, dynamic> json)  //외부에서온 데이터를 다트오브젝트로변경
