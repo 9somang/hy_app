@@ -10,7 +10,6 @@ class JobnoController extends GetxController {
   void onInit() {
     super.onInit();
     findAllJobnotice();
-    print("안녕");
   }
 
   Future<void> findAllJobnotice() async {
