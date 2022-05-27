@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:new_project/utill/jwt.dart';
 
-const host = "http://192.168.0.5/8080";
+const host = "http://10.0.2.2:5000/post";
 
 // 통신
 class JobopProvider extends GetConnect {
 
   Future<Response> findAllJobopening() =>
-      get("$host/post_jobopening", headers: {"authorization" : jwtToken ?? ""});
+      get("$host/jobopen/", headers: {"authorization" : jwtToken ?? ""});
 }

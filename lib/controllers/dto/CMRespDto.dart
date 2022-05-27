@@ -1,5 +1,5 @@
 class CMRespDto{
-  final String? code;
+  final int? code;
   final String? msg;
   final dynamic data;
 

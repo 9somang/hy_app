@@ -12,13 +12,12 @@ class JobnoRepository {
 
   Future<List<Post>> findAllJobNotice() async {
     Response response = await _jobnoProvider.findAllJobNotice();
+    print("test : ${response}");
     dynamic body = response.body;
-    print(convertUtf8ToObject(body)); // 응답되는 값 안깨지는지 확인
-    dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
+    // 응답되는 값 안깨지는지 확인
+    //dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-    print(cmRespDto.code);
-    print(cmRespDto.msg);
-    print(cmRespDto.data.runtimeType);
+    print("test : ${body}");
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
@@ -27,5 +26,6 @@ class JobnoRepository {
     } else {
       return <Post>[]; // 빈배열 호출
     }
+
   }
 }
