@@ -25,8 +25,8 @@ class JobhuntRepository {
   Future<List<Post>> findAllJobhunting() async {
     Response response = await _jobhuntProvider.findAllJobhunting();
     dynamic body = response.body;
-    dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
-    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    // dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
     //print(cmRespDto.code);
     //print(cmRespDto.msg);
     //print(cmRespDto.data.runtimeType);

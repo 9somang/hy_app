@@ -9,12 +9,12 @@ import '../post/post.dart';
 class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
 
-  Future<Post> findById(int id) async{
+  Future<Post> findByJobnoId(int id) async{
     Response response = await _jobnoProvider.findByJobnoId(id);
     dynamic body = response.body;
-    dynamic convertbody = convertUtf8ToObject(body);
-    CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);
-
+    // dynamic convertbody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+    print("test: ${body}");
     if(cmRespDto ==1) {
         Post post = Post.fromJson(cmRespDto.data);
         return post;
@@ -26,8 +26,8 @@ class JobnoRepository {
   Future<List<Post>> findAllJobNotice() async {
     Response response = await _jobnoProvider.findAllJobNotice();
     dynamic body = response.body;
-    dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
-    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    // dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;

@@ -16,7 +16,7 @@ class _JobnoticeState extends State<Jobnotice> {
 
     //객체 생성 (create),  onInit 함수실행(initialize)
     JobnoController jn = Get.put(JobnoController());
-    // jn.findAllJobnotice();
+    jn.findAllJobnotice();
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +46,7 @@ class _JobnoticeState extends State<Jobnotice> {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
-                    jn.findById(jn.posts[index].id!);
+                    jn.findByJobnoId(jn.posts[index].id!);
                     Get.to(jobnoDetailPage(jn.posts[index].id));
                     },
                     title: Text(

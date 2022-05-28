@@ -19,7 +19,7 @@ class JobopenController extends GetxController {
   }
 
   Future<void> findById(int id) async {
-    Post post = await _jobopenRepository.findById(id);
+    Post post = await _jobopenRepository.findByopenId(id);
     this.post.value = post;
   }
 
