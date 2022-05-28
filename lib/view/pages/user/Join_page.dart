@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/validator_util.dart';
@@ -89,6 +90,7 @@ class JoinPage extends StatelessWidget {
                    funpageRoute: () {
                      if( _formkey.currentState!.validate()) {
                        u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
+                       showToast('회원가입이 완료 되었습니다.');
                      }
 
                    },
@@ -101,6 +103,14 @@ class JoinPage extends StatelessWidget {
              ],
            ),
          );
+  }
+  void showToast(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        backgroundColor: Colors.white,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM
+    );
   }
 }
 

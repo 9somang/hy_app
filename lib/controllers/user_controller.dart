@@ -3,29 +3,32 @@ import 'package:get/get.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/jwt.dart';
 
+import '../domain/user/user.dart';
+
 class UserController extends GetxController {
   final UserRepository _userRepository = UserRepository();
   final RxBool isLogin = false.obs; // UI가 관찰가능한 변수 => 변경 => UI가 자동업데이트
+  final principal = User().obs;
 
-  void logout(){
+  Future<void> register(String username, String password, String email) async {
+    _userRepository.register(username, password, email);
+  }
+
+  void logout() {
     isLogin.value = false;
     jwtToken = null;
   }
 
 
-  Future<String> login(String username, String password) async {
-    String token = await _userRepository.login(username, password);
-    if (token != "-1") {
-      isLogin.value = true;
-      jwtToken = token;
-      print("JwtToken: $jwtToken");
+  Future<int> login(String username, String password) async {
+    User principal = await _userRepository.login(username, password);
+
+    if (principal.id != null) {
+      this.isLogin.value = true;
+      this.principal.value = principal;
+      return 1;
+    } else {
+      return -1;
     }
-    return token;
-  }
-
-
-  Future<void> register(String username, String password, String email) async {
-    _userRepository.register(username, password, email);
   }
 }
-

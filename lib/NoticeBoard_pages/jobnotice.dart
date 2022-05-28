@@ -45,14 +45,14 @@ class _JobnoticeState extends State<Jobnotice> {
               itemCount: jn.posts.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  onTap: () {
-                    jn.findByJobnoId(jn.posts[index].id!);
+                  onTap: () async{
+                    await jn.findByJobnoId(jn.posts[index].id!);
                     Get.to(jobnoDetailPage(jn.posts[index].id));
                     },
                     title: Text("${jn.posts[index].title}",
                       style: TextStyle(fontSize: 17),
                       ),
-                    subtitle: Text("작성자 : username(마지막에할당)"
+                    subtitle: Text("작성자 : ${jn.post.value.user?.username}"
                       ,style: TextStyle(fontSize: 13),
                       ),
                     leading: Text(
