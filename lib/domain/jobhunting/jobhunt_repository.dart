@@ -19,8 +19,8 @@ class JobhuntRepository {
   Future<Post> findByhuntId(int id) async{
     Response response = await _jobhuntProvider.findByhuntId(id);
     dynamic body = response.body;
-    dynamic convertbody = convertUtf8ToObject(body);
-    CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);
+    // dynamic convertbody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
 
     if(cmRespDto.code ==1) {
       Post post = Post.fromJson(cmRespDto.data);
