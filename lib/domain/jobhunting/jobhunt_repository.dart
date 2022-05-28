@@ -8,13 +8,21 @@ import '../post/post.dart';
 class JobhuntRepository {
   final JobhuntProvider _jobhuntProvider = JobhuntProvider();
 
+  Future<int> deleteByJobhuntId(int id) async{
+    Response response = await _jobhuntProvider.deleteByJobhuntId(id);
+    dynamic body = response.body;
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+
+    return cmRespDto.code ?? -1;  // 또는 code!;
+  }
+
   Future<Post> findByhuntId(int id) async{
     Response response = await _jobhuntProvider.findByhuntId(id);
     dynamic body = response.body;
     dynamic convertbody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);
 
-    if(cmRespDto ==1) {
+    if(cmRespDto.code ==1) {
       Post post = Post.fromJson(cmRespDto.data);
       return post;
     }else {
@@ -27,9 +35,6 @@ class JobhuntRepository {
     dynamic body = response.body;
     // dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-    //print(cmRespDto.code);
-    //print(cmRespDto.msg);
-    //print(cmRespDto.data.runtimeType);
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;

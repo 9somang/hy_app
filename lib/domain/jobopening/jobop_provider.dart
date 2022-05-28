@@ -11,4 +11,8 @@ class JobopProvider extends GetConnect {
 
   Future<Response> findByopenId(int id) =>
       get("$host/jobopen/$id", headers: {"authorization" : jwtToken ?? ""});
+
+  Future<Response> deleteByJobopenId(int id) =>
+      delete("$host/jobnotice/$id", headers: {"authorization" : jwtToken ?? ""});
+
 }

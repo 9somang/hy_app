@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
-import 'package:new_project/view/pages/post/comment_page.dart';
 import 'package:new_project/view/pages/post/update_page.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
@@ -23,7 +22,7 @@ class jobnoDetailPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.indigo,
           elevation: 0.0,
-          title: Text("글 상세 페이지,게시글아이디:$id , 로그인상태: ${u.isLogin}"),
+          title: Text("글 상세 페이지"),
           centerTitle: true,
         ),
 
@@ -33,7 +32,7 @@ class jobnoDetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("${jn.post.value.title}",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23)
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
               Container(
@@ -43,9 +42,8 @@ class jobnoDetailPage extends StatelessWidget {
                 child: Text("작성자 : ${jn.post.value.user?.username}"),
               ),
               SizedBox(height: 5),
-              Row(
+              u.principal.value.id == jn.post.value.user!.id ? Row(
                 children: [
-
                   SizedBox(width: 7),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -69,25 +67,25 @@ class jobnoDetailPage extends StatelessWidget {
                       child: Text("수정")
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      border:   Border.all(),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4),
-                      ),
-                    ),
-                    child: OutlineButton(
-                      onPressed: () {
-                        _DownloadDialog(context);
-                      },
-                      child: Text("업로드 된 파일 확인",
-                        style:TextStyle(fontSize: 12),
-                      ),
-                    ),
-                    width: 160,
-                    height: 30,
-                  ),
                 ],
+              ) : SizedBox(),
+              Container(    // row 바깥으로 업로드파일확인버튼을 빼놨음
+                decoration: BoxDecoration(
+                  border:   Border.all(),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(4),
+                  ),
+                ),
+                child: OutlineButton(
+                  onPressed: () {
+                    _DownloadDialog(context);
+                  },
+                  child: Text("업로드 된 파일 확인",
+                    style:TextStyle(fontSize: 12),
+                  ),
+                ),
+                width: 160,
+                height: 30,
               ),
               SizedBox(height:7),
               Expanded(
@@ -105,6 +103,7 @@ class jobnoDetailPage extends StatelessWidget {
 
 
 void _deleteDialog(BuildContext context) {
+  JobnoController  jn = Get.find();
   showDialog(
       context: context,
       barrierDismissible: false,
@@ -121,10 +120,11 @@ void _deleteDialog(BuildContext context) {
           actions: [
             FlatButton(
               child: Text("예"),
-              onPressed: () {
+              onPressed: () async{
                 Navigator.of(context).pop(); // 저장소에서 해당 게시물삭제
                 _deleteDialog(context);
-                Get.to(MainPage());
+                await jn.deleteByJobnoId(jn.post.value.id!);
+                Get.off(()=> MainPage());
               },
             ),
             FlatButton(

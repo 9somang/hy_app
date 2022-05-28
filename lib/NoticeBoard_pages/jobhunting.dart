@@ -16,6 +16,7 @@ class _JobHuntingState extends State<JobHunting> {
   @override
   Widget build(BuildContext context) {
     JobhuntController jhunt = Get.put(JobhuntController());
+    jhunt.findAllJobhunting();
 
     return Scaffold(
       appBar: AppBar(
@@ -40,22 +41,21 @@ class _JobHuntingState extends State<JobHunting> {
         ],
 
       ),
-      body: ListView.separated(
+      body: Obx(()=> ListView.separated(
         itemCount: jhunt.posts.length,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () {
-              Get.to(jobhuntDetailPage(index));
+            onTap: () async{
+              await jhunt.findByhuntId(jhunt.posts[index].id!);
+              Get.to(jobhuntDetailPage(jhunt.posts[index].id));
             },
-            title: Text(
-              "${jhunt.posts[index].title}",
+            title: Text("${jhunt.posts[index].title}",
               style: TextStyle(fontSize: 17),
             ),
-            subtitle: Text("작성자 : {_username}"
+            subtitle: Text("작성자 : ${jhunt.posts[index].user?.username}"
               ,style: TextStyle(fontSize: 13),
             ),
-            leading: Text(
-              "{yyyy_mm_dd}",
+            leading: Text("${jhunt.posts[index].created}",
               style: TextStyle(fontSize: 8),
             ),
           );
@@ -63,6 +63,7 @@ class _JobHuntingState extends State<JobHunting> {
         separatorBuilder: (context, index) {
           return Divider();
         },
+      ),
       ),
     );
   }

@@ -13,6 +13,17 @@ class JobhuntController extends GetxController {
     findAllJobhunting();
   }
 
+  Future<void> deleteByJobhuntId(int id) async{
+    int result = await _jobhuntRepository.deleteByJobhuntId(id);
+
+    if(result == 1){
+      print("DB 삭제 성공");
+      List<Post> result = posts.where((post) => post.id != id).toList();
+      // print(result.length);
+      posts.value = result;
+    }
+  }
+
   Future<void> findAllJobhunting() async {
     List<Post> posts = await _jobhuntRepository.findAllJobhunting();
     this.posts.value = posts;

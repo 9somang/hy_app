@@ -13,6 +13,17 @@ class JobnoController extends GetxController {
     findAllJobnotice();
   }
 
+  Future<void> deleteByJobnoId(int id) async{
+    int result = await _jobnoRepository.deleteByJobnoId(id);
+
+    if(result == 1){
+      print("DB 삭제 성공");
+      List<Post> result = posts.where((post) => post.id != id).toList();
+      // print(result.length);  // DB 길이값 체크
+      posts.value = result;
+    }
+  }
+
   Future<void> findAllJobnotice() async {
     List<Post> posts = await _jobnoRepository.findAllJobNotice();
     this.posts.value = posts;

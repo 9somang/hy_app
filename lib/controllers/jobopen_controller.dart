@@ -13,6 +13,17 @@ class JobopenController extends GetxController {
     findAllJobOpening();
   }
 
+  Future<void> deleteByJobopenId(int id) async{
+    int result = await _jobopenRepository.deleteByJobopenId(id);
+
+    if(result == 1){
+      print("DB 삭제 성공");
+      List<Post> result = posts.where((post) => post.id != id).toList();
+      // print(result.length);
+      posts.value = result;
+    }
+  }
+
   Future<void> findAllJobOpening() async {
     List<Post> posts = await _jobopenRepository.findAllJobopening();
     this.posts.value = posts;

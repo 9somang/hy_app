@@ -9,13 +9,19 @@ import '../post/post.dart';
 class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
 
+  Future<int> deleteByJobnoId(int id) async{
+    Response response = await _jobnoProvider.deleteByJobnoId(id);
+    dynamic body = response.body;
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+
+    return cmRespDto.code ?? -1;  // 또는 code!;
+  }
+
   Future<Post> findByJobnoId(int id) async{
     Response response = await _jobnoProvider.findByJobnoId(id);
     dynamic body = response.body;
-    print("test : ${body}");
     // dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-    print("test : ${cmRespDto.code}");
 
     if(cmRespDto.code == 1) {
         Post post = Post.fromJson(cmRespDto.data);

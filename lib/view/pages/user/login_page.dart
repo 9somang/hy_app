@@ -10,7 +10,6 @@ import 'Join_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
-
   final UserController u = Get.put(UserController());
 
   final _username = TextEditingController();

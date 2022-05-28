@@ -28,7 +28,6 @@ class UserRepository {
     Response response = await _userProvider.login(loginReqDto.toJson());
     dynamic headers = response.headers; // headers 함수 = 서버에서 보내는 응답헤더;
     dynamic body = jsonDecode(response.body);
-
     // dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
 
@@ -36,6 +35,7 @@ class UserRepository {
       User principal = User.fromJson(cmRespDto.data);
 
       String token = headers["authorization"];
+
       jwtToken = token;
       print("JwtToken: $jwtToken");
 

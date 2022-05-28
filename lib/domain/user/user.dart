@@ -20,7 +20,7 @@ class User{
       });
 
 
-    User.fromJson(Map<String, dynamic> json)  //외부에서온 데이터를 다트오브젝트로변경
+    User.fromJson(Map<String, dynamic>json)  //외부에서온 데이터를 다트오브젝트로변경
     : id = json['id'],
       username = json['username'],
       password = json['password'],

@@ -7,13 +7,21 @@ import '../post/post.dart';
 class JobopenRepository {
   final JobopProvider _jobopProvider = JobopProvider();
 
+  Future<int> deleteByJobopenId(int id) async{
+    Response response = await _jobopProvider.deleteByJobopenId(id);
+    dynamic body = response.body;
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+
+    return cmRespDto.code ?? -1;  // 또는 code!;
+  }
+
   Future<Post> findByopenId(int id) async{
     Response response = await _jobopProvider.findByopenId(id);
     dynamic body = response.body;
     // dynamic convertbody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
 
-    if(cmRespDto ==1) {
+    if(cmRespDto.code ==1) {
       Post post = Post.fromJson(cmRespDto.data);
       return post;
     }else {
@@ -24,12 +32,9 @@ class JobopenRepository {
   Future<List<Post>> findAllJobopening() async {
     Response response = await _jobopProvider.findAllJobopening();
     dynamic body = response.body;
-   // print(convertUtf8ToObject(body)); // 응답되는 값 안깨지는지 확인
    //  dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-    //print(cmRespDto.code);
-    //print(cmRespDto.msg);     // 값 받음확인하는 용도 print
-    //print(cmRespDto.data.runtimeType);
+
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
