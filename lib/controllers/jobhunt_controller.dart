@@ -18,8 +18,8 @@ class JobhuntController extends GetxController {
     this.posts.value = posts;
   }
 
-  Future<void> findById(int id) async {
-    Post post = await _jobhuntRepository.findById(id);
+  Future<void> findByhuntId(int id) async {
+    Post post = await _jobhuntRepository.findByhuntId(id);
     this.post.value = post;
   }
 

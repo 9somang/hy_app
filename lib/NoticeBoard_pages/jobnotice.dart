@@ -41,7 +41,7 @@ class _JobnoticeState extends State<Jobnotice> {
         ],
       ),
       body: Obx(
-        ()=> ListView.separated(
+            ()=> ListView.separated(
               itemCount: jn.posts.length,
               itemBuilder: (context, index) {
                 return ListTile(
@@ -49,8 +49,7 @@ class _JobnoticeState extends State<Jobnotice> {
                     jn.findByJobnoId(jn.posts[index].id!);
                     Get.to(jobnoDetailPage(jn.posts[index].id));
                     },
-                    title: Text(
-                      "${jn.posts[index].title}",
+                    title: Text("${jn.posts[index].title}",
                       style: TextStyle(fontSize: 17),
                       ),
                     subtitle: Text("작성자 : username(마지막에할당)"

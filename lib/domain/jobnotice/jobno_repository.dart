@@ -12,10 +12,10 @@ class JobnoRepository {
   Future<Post> findByJobnoId(int id) async{
     Response response = await _jobnoProvider.findByJobnoId(id);
     dynamic body = response.body;
-    // dynamic convertbody = convertUtf8ToObject(body);
-    CMRespDto cmRespDto = CMRespDto.fromJson(body);
-    print("test: ${body}");
-    if(cmRespDto ==1) {
+    dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+
+    if(cmRespDto == 1) {
         Post post = Post.fromJson(cmRespDto.data);
         return post;
     }else {
@@ -26,8 +26,8 @@ class JobnoRepository {
   Future<List<Post>> findAllJobNotice() async {
     Response response = await _jobnoProvider.findAllJobNotice();
     dynamic body = response.body;
-    // dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
-    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+    dynamic convertBody = convertUtf8ToObject(body); // utf-8 한글 깨짐 해결
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
 
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
