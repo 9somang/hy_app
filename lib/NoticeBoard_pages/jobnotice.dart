@@ -47,7 +47,7 @@ class _JobnoticeState extends State<Jobnotice> {
                 return ListTile(
                   onTap: () {
                     jn.findById(jn.posts[index].id!);
-                    Get.to(DetailPage(jn.posts[index].id));
+                    Get.to(jobnoDetailPage(jn.posts[index].id));
                     },
                     title: Text(
                       "${jn.posts[index].title}",

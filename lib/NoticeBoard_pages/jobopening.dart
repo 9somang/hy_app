@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobopen_controller.dart';
+import 'package:new_project/view/pages/post/jobopdetail.dart';
 
 import '../controllers/post_controller.dart';
 import '../view/pages/post/jobnodetail.dart';
@@ -44,7 +45,7 @@ class _JobOpeningState extends State<JobOpening> {
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              Get.to(DetailPage(index));
+              Get.to(jobopDetailPage(index));
             },
             title: Text(
               "${jopen.posts[index].title}",

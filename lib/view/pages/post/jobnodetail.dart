@@ -8,10 +8,10 @@ import 'package:new_project/view/pages/post/update_page.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
 
-class DetailPage extends StatelessWidget {
+class jobnoDetailPage extends StatelessWidget {
   final int? id;
 
-  const DetailPage(this.id);
+  const jobnoDetailPage(this.id);
 
   @override
   Widget build(BuildContext context) {

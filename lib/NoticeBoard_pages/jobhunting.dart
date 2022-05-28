@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobhunt_controller.dart';
+import 'package:new_project/view/pages/post/jobhuntdetail.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
 
 import '../controllers/post_controller.dart';
@@ -44,7 +45,7 @@ class _JobHuntingState extends State<JobHunting> {
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              Get.to(DetailPage(index));
+              Get.to(jobhuntDetailPage(index));
             },
             title: Text(
               "${jhunt.posts[index].title}",

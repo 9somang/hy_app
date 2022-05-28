@@ -8,10 +8,10 @@ import 'package:new_project/view/pages/post/update_page.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
 
-class DetailPage extends StatelessWidget {
+class jobopDetailPage extends StatelessWidget {
   final int? id;
 
-  const DetailPage(this.id);
+  const jobopDetailPage(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class DetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("글 제목",
+              Text("${jo.post.value.title}",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
@@ -93,7 +93,7 @@ class DetailPage extends StatelessWidget {
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(
-                    child: Text("글의 내용 " * 500),
+                    child: Text("${jo.post.value.content}"),
                   )
               ),
             ],
