@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
-import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/view/pages/post/comment_page.dart';
 import 'package:new_project/view/pages/post/update_page.dart';
@@ -17,8 +16,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //String data = Get.arguments;
     UserController u = Get.find();
-    JobnoController  jn = Get.find();
-
+    //메타코딩 11강..5분쯤
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.indigo,
@@ -29,10 +27,10 @@ class DetailPage extends StatelessWidget {
 
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Obx(()=> Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${jn.post.value.title}",
+              Text("글 제목",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
@@ -92,11 +90,10 @@ class DetailPage extends StatelessWidget {
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(
-                    child: Text("${jn.post.value.content}"),
+                    child: Text("글의 내용 " * 500),
                   )
               ),
             ],
-          ),
           ),
         )
     );

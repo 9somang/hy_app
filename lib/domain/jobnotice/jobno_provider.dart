@@ -9,4 +9,8 @@ class JobnoProvider extends GetConnect {
   Future<Response> findAllJobNotice() =>
       get("$host/jobnotice/", headers: {"authorization" : jwtToken ?? ""});
 
+  Future<Response> findById(int id) =>
+      get("$host/$id", headers: {"authorization" : jwtToken ?? ""});
+
+
 }
