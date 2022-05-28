@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     // put은 없으면 만들고, 있으면 찾는다. 이미 만들었기때문에 find.
-    final UserController u = Get.put(UserController());
+    UserController u = Get.put(UserController());
 
     return Scaffold(
       appBar: AppBar(
@@ -130,7 +130,7 @@ class _MainPageState extends State<MainPage> {
 
 
 void _logoutDialog(BuildContext context) {
-  // UserController u = Get.find();
+  UserController u = Get.find();
   showDialog(
       context: context,
       barrierDismissible: false,
@@ -150,7 +150,7 @@ void _logoutDialog(BuildContext context) {
               onPressed: () {
                 Navigator.of(context).pop();
                 Get.offAll(LoginPage());
-                // u.logout;
+                u.logout;
               },
             ),
             FlatButton(

@@ -56,7 +56,7 @@ class _JobnoticeState extends State<Jobnotice> {
                       ,style: TextStyle(fontSize: 13),
                       ),
                     leading: Text(
-                      "{yyyy_mm_dd}",
+                      "${jn.post.value.created}",
                         style: TextStyle(fontSize: 8),
                         ),
               );

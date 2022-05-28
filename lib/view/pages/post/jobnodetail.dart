@@ -37,10 +37,10 @@ class jobnoDetailPage extends StatelessWidget {
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
               Container(
-                child: Text("작성일 : yyyy-mm-dd"),
+                child: Text("작성일 : ${jn.post.value.created}"),
               ),
               Container(
-                child: Text("작성자 : _username"),
+                child: Text("작성자 : ${jn.post.value.user?.username}"),
               ),
               SizedBox(height: 5),
               Row(
