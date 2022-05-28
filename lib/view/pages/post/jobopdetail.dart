@@ -104,6 +104,7 @@ class jobopDetailPage extends StatelessWidget {
 
 
 void _deleteDialog(BuildContext context) {
+  JobopenController jo = Get.find();
   showDialog(
       context: context,
       barrierDismissible: false,
@@ -120,9 +121,11 @@ void _deleteDialog(BuildContext context) {
           actions: [
             FlatButton(
               child: Text("예"),
-              onPressed: () {
+              onPressed: () async{
                 Navigator.of(context).pop(); // 저장소에서 해당 게시물삭제
                 _deleteDialog(context);
+                await jo.deleteByJobopenId(jo.post.value.id!);
+                Get.off(()=> MainPage());
                 Get.to(MainPage());
               },
             ),
