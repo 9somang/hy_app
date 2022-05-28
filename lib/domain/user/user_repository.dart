@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/LoginReqDto.dart';
@@ -7,6 +9,7 @@ import 'package:new_project/domain/user/user_provider.dart';
 import 'package:new_project/utill/jwt.dart';
 
 import '../../controllers/dto/CMRespDto.dart';
+import '../../utill/convert_utf8.dart';
 
 // 통신을 호출해서 응답되는 데이터를 가공 json > object (tojson)
 
@@ -24,16 +27,18 @@ class UserRepository {
     print(loginReqDto.toJson());
     Response response = await _userProvider.login(loginReqDto.toJson());
     dynamic headers = response.headers; // headers 함수 = 서버에서 보내는 응답헤더;
-    dynamic body = response.body;
+    dynamic body = jsonDecode(response.body);
+    print("headers: ${headers['authorization']}");
+    print("body: ${body}");
 
     // dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-
+    print("cmRespDto: ${cmRespDto.code}");
     if (cmRespDto.code == 1) {
       User principal = User.fromJson(cmRespDto.data);
-
+      print("principal: ${principal}");
+      print("headers: ${headers["authorization"]}");
       String token = headers["authorization"];
-
       jwtToken = token;
       print("JwtToken: $jwtToken");
 

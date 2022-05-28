@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class CMRespDto{
   final int? code;
   final String? msg;
@@ -8,9 +10,8 @@ class CMRespDto{
         this.msg,
         this.data,
   });
-  CMRespDto.fromJson(Map<String, dynamic> json)
+  CMRespDto.fromJson(Map<String,dynamic> json)
       : code = json['code'],
         msg = json['msg'],
         data = json['data'];
-
 }
