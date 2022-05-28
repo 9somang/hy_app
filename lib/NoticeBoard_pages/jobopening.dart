@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:new_project/controllers/jobopen_controller.dart';
 
 import '../controllers/post_controller.dart';
-import '../view/pages/post/detail_page.dart';
+import '../view/pages/post/jobnodetail.dart';
 import '../view/pages/post/write_page.dart';
 
 

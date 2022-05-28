@@ -1,6 +1,3 @@
-
-import 'dart:html';
-
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/CMRespDto.dart';
 import 'package:new_project/domain/jobnotice/jobno_provider.dart';
@@ -13,7 +10,7 @@ class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
 
   Future<Post> findById(int id) async{
-    Response response = await _jobnoProvider.findById(id);
+    Response response = await _jobnoProvider.findByJobnoId(id);
     dynamic body = response.body;
     dynamic convertbody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);

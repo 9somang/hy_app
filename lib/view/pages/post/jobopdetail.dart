@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
+import 'package:new_project/controllers/jobopen_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/view/pages/post/comment_page.dart';
 import 'package:new_project/view/pages/post/update_page.dart';
@@ -16,6 +17,8 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //String data = Get.arguments;
     UserController u = Get.find();
+    JobopenController  jo = Get.find();
+
     //메타코딩 11강..5분쯤
     return Scaffold(
         appBar: AppBar(

@@ -7,6 +7,20 @@ import '../post/post.dart';
 class JobopenRepository {
   final JobopProvider _jobopProvider = JobopProvider();
 
+  Future<Post> findById(int id) async{
+    Response response = await _jobopProvider.findByopenId(id);
+    dynamic body = response.body;
+    dynamic convertbody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);
+
+    if(cmRespDto ==1) {
+      Post post = Post.fromJson(cmRespDto.data);
+      return post;
+    }else {
+      return  Post();
+    }
+  }
+
   Future<List<Post>> findAllJobopening() async {
     Response response = await _jobopProvider.findAllJobopening();
     dynamic body = response.body;

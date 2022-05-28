@@ -8,4 +8,7 @@ class JobopProvider extends GetConnect {
 
   Future<Response> findAllJobopening() =>
       get("$host/jobopen/", headers: {"authorization" : jwtToken ?? ""});
+
+  Future<Response> findByopenId(int id) =>
+      get("$host/$id", headers: {"authorization" : jwtToken ?? ""});
 }

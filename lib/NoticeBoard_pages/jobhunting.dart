@@ -4,7 +4,7 @@ import 'package:new_project/controllers/jobhunt_controller.dart';
 import 'package:new_project/view/pages/post/write_page.dart';
 
 import '../controllers/post_controller.dart';
-import '../view/pages/post/detail_page.dart';
+import '../view/pages/post/jobnodetail.dart';
 
 class JobHunting extends StatefulWidget {
   @override

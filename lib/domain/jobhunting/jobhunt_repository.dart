@@ -8,6 +8,20 @@ import '../post/post.dart';
 class JobhuntRepository {
   final JobhuntProvider _jobhuntProvider = JobhuntProvider();
 
+  Future<Post> findById(int id) async{
+    Response response = await _jobhuntProvider.findByhuntId(id);
+    dynamic body = response.body;
+    dynamic convertbody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertbody);
+
+    if(cmRespDto ==1) {
+      Post post = Post.fromJson(cmRespDto.data);
+      return post;
+    }else {
+      return  Post();
+    }
+  }
+
   Future<List<Post>> findAllJobhunting() async {
     Response response = await _jobhuntProvider.findAllJobhunting();
     dynamic body = response.body;

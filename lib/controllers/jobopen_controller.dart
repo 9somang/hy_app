@@ -5,6 +5,7 @@ import '../domain/post/post.dart';
 class JobopenController extends GetxController {
   final JobopenRepository _jobopenRepository = JobopenRepository();
   final posts = <Post>[].obs;
+  final post = Post().obs;
 
   @override
   void onInit() {
@@ -15,6 +16,11 @@ class JobopenController extends GetxController {
   Future<void> findAllJobOpening() async {
     List<Post> posts = await _jobopenRepository.findAllJobopening();
     this.posts.value = posts;
+  }
+
+  Future<void> findById(int id) async {
+    Post post = await _jobopenRepository.findById(id);
+    this.post.value = post;
   }
 
 }

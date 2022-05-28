@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
-import '../view/pages/post/detail_page.dart';
+import '../view/pages/post/jobnodetail.dart';
 import '../view/pages/post/write_page.dart';
 
 class Jobnotice extends StatefulWidget {
