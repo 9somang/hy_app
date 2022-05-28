@@ -52,11 +52,11 @@ class _JobnoticeState extends State<Jobnotice> {
                     title: Text("${jn.posts[index].title}",
                       style: TextStyle(fontSize: 17),
                       ),
-                    subtitle: Text("작성자 : ${jn.post.value.user?.username}"
+                    subtitle: Text("작성자 : ${jn.posts[index].user?.username}"
                       ,style: TextStyle(fontSize: 13),
                       ),
                     leading: Text(
-                      "${jn.post.value.created}",
+                      "${jn.posts[index].created}",
                         style: TextStyle(fontSize: 8),
                         ),
               );
