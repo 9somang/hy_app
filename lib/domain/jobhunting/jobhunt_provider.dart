@@ -19,5 +19,5 @@ class JobhuntProvider extends GetConnect {
       put("$host/jobhunt/$id", data,headers: {"authorization" : jwtToken ?? ""});
 
   Future<Response> Jobhuntsave(Map data) =>
-      post("$host/post", data, headers: {"authorization" : jwtToken ?? ""});
+      post("$host/jobhunt/", data, headers: {"authorization" : jwtToken ?? ""});
 }

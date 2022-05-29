@@ -19,6 +19,6 @@ class JobopProvider extends GetConnect {
       put("$host/jobopen/$id", data,headers: {"authorization" : jwtToken ?? ""});
 
   Future<Response> Jobopensave(Map data) =>
-      post("$host/post", data, headers: {"authorization" : jwtToken ?? ""});
+      post("$host/jobopen/", data, headers: {"authorization" : jwtToken ?? ""});
 
 }

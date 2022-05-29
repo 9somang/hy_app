@@ -19,7 +19,7 @@ class JobnoProvider extends GetConnect {
       put("$host/jobnotice/$id", data,headers: {"authorization" : jwtToken ?? ""});
 
   Future<Response> Jobnosave(Map data) =>
-      post("$host/post", data, headers: {"authorization" : jwtToken ?? ""});
+      post("$host/jobnotice/", data, headers: {"authorization" : jwtToken ?? ""});
 
 
 }
