@@ -4,13 +4,11 @@ class CustomTextFormField extends StatelessWidget {
 
   final String hint;
   final funValidator;
-  final value;
   final controller;
 
   const CustomTextFormField({
     required this.hint,
     required this.funValidator,
-    this.value,
     this.controller}
       );
 
@@ -23,7 +21,6 @@ class CustomTextFormField extends StatelessWidget {
         width: 350,
         child: TextFormField(
           controller: controller,
-          initialValue: value,
            validator:  funValidator,
           obscureText: hint=="Password" ? true : false,
           decoration: InputDecoration(

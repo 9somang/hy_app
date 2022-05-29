@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
-import '../view/pages/post/jobnodetail.dart';
-import '../view/pages/post/write_page.dart';
+import '../view/pages/post/detail/jobnodetail.dart';
+import '../view/pages/post/write/jobnowrite.dart';
 
 class Jobnotice extends StatefulWidget {
+
   @override
   _JobnoticeState createState() => _JobnoticeState();
 }
 
 class _JobnoticeState extends State<Jobnotice> {
+  var refreshKey = GlobalKey<RefreshIndicatorState>();
+
   @override
   Widget build(BuildContext context) {
     // UserController u = Get.find();
@@ -33,7 +36,7 @@ class _JobnoticeState extends State<Jobnotice> {
         actions: <Widget>[
           IconButton(
               onPressed: (){
-                Get.to(WritePage());
+                Get.to(()=> JobnoWritePage());
               },
               icon: Icon(Icons.add),
               color: Colors.indigo,
@@ -41,30 +44,36 @@ class _JobnoticeState extends State<Jobnotice> {
         ],
       ),
       body: Obx(
-            ()=> ListView.separated(
-              itemCount: jn.posts.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () async{
-                    await jn.findByJobnoId(jn.posts[index].id!);
-                    Get.to(jobnoDetailPage(jn.posts[index].id));
-                    },
-                    title: Text("${jn.posts[index].title}",
-                      style: TextStyle(fontSize: 17),
-                      ),
-                    subtitle: Text("작성자 : ${jn.posts[index].user?.username}"
-                      ,style: TextStyle(fontSize: 13),
-                      ),
-                    leading: Text(
-                      "${jn.posts[index].created}",
-                        style: TextStyle(fontSize: 8),
+            ()=> RefreshIndicator(
+              key: refreshKey,
+              onRefresh: () async {
+                await jn.findAllJobnotice();
+              },
+              child: ListView.separated(
+                itemCount: jn.posts.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    onTap: () async{
+                      await jn.findByJobnoId(jn.posts[index].id!);
+                      Get.to(jobnoDetailPage(jn.posts[index].id));
+                      },
+                      title: Text("${jn.posts[index].title}",
+                        style: TextStyle(fontSize: 17),
                         ),
-              );
-            },
-              separatorBuilder: (context, index) {
-                return Divider();
+                      subtitle: Text("작성자 : ${jn.posts[index].user?.username}"
+                        ,style: TextStyle(fontSize: 13),
+                        ),
+                      leading: Text(
+                        "${jn.posts[index].created}",
+                          style: TextStyle(fontSize: 8),
+                          ),
+                );
+              },
+                separatorBuilder: (context, index) {
+                  return Divider();
           },
         ),
+            ),
       ),
     );
   }

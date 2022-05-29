@@ -15,4 +15,9 @@ class JobhuntProvider extends GetConnect {
   Future<Response> deleteByJobhuntId(int id) =>
       delete("$host/jobhunt/$id", headers: {"authorization" : jwtToken ?? ""});
 
+  Future<Response> Jobhuntupdate(int id, Map data) =>
+      put("$host/jobhunt/$id", data,headers: {"authorization" : jwtToken ?? ""});
+
+  Future<Response> Jobhuntsave(Map data) =>
+      post("$host/post", data, headers: {"authorization" : jwtToken ?? ""});
 }

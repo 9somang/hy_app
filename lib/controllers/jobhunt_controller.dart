@@ -13,6 +13,13 @@ class JobhuntController extends GetxController {
     findAllJobhunting();
   }
 
+  Future<void> Jobhuntsave(String title, String content)async{
+    Post post = await _jobhuntRepository.Jobhuntsave(title,content);
+    if(post.id != null){
+      this.posts.add(post);
+    }
+  }
+
   Future<void> deleteByJobhuntId(int id) async{
     int result = await _jobhuntRepository.deleteByJobhuntId(id);
 
@@ -21,6 +28,14 @@ class JobhuntController extends GetxController {
       List<Post> result = posts.where((post) => post.id != id).toList();
       // print(result.length);
       posts.value = result;
+    }
+  }
+
+  Future<void> Jobhuntupdate(int id, String title, String content) async{
+    Post post = await _jobhuntRepository.Jobhuntupdate(id, title, content);
+    if(post.id != null) {
+      this.post.value = post;
+      this.posts.value = this.posts.map((e) => e.id == id ? post : e).toList();
     }
   }
 

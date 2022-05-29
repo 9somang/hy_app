@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/controllers/jobhunt_controller.dart';
+import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/utill/validator_util.dart';
 
-import '../../components/custom_elevated_button.dart';
-import '../../components/custom_text_form_field.dart';
-import '../../components/customtextarea.dart';
+import '../../../components/custom_elevated_button.dart';
+import '../../../components/custom_text_form_field.dart';
+import '../../../components/customtextarea.dart';
 
 
 
-class UpdatePage extends StatelessWidget {
+class JobhuntUpdatePage extends StatelessWidget {
 
   final _formkey = GlobalKey<FormState>();
+  final _title = TextEditingController();
+  final _content = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
+    JobhuntController jh = Get.find();
+    _title.text= "${jh.post.value.title}";
+    _content.text= "${jh.post.value.content}";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -28,20 +36,20 @@ class UpdatePage extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormField(
-                    hint: "제목",
-                    funValidator: validateTitle(),
-                    value: "제목1~"*2,
+                  hint: "제목",
+                  funValidator: validateTitle(),
                 ),
                 CustomTextFormArea(
-                    hint: "내용",
-                    funValidator: validateContent(),
-                    value: "내용1~"*20,
+                  hint: "내용",
+                  funValidator: validateContent(),
                 ),
 
                 CustomElevatedButton(
                   text: "글 수정하기",
-                  funpageRoute: () {
+                  funpageRoute: () async{
                     if( _formkey.currentState!.validate()) {
+                      await jh.Jobhuntupdate(
+                          jh.post.value.id ?? 0, _title.text, _content.text);
                       // 같은 page가 있으면 이동할때 덮어씌우기 < 이게 레알 최고ㅁㄴ
                       Get.back(); //상태관리 Getx 라이브러리 - obs(데이터갱신)
                     }

@@ -4,9 +4,10 @@ import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobhunt_controller.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
-import 'package:new_project/view/pages/post/update_page.dart';
+import 'package:new_project/view/pages/post/update/jobhuntupdate.dart';
+import 'package:new_project/view/pages/post/update/jobnoupdate.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:new_project/view/pages/post/write_page.dart';
+import 'package:new_project/view/pages/post/write/jobopenwrite.dart';
 
 class jobhuntDetailPage extends StatelessWidget {
   final int? id;
@@ -64,7 +65,7 @@ class jobhuntDetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        Get.to(UpdatePage());
+                        Get.to(JobhuntUpdatePage());
                       },
                       child: Text("수정")
                   ),

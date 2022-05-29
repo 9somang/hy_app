@@ -15,5 +15,11 @@ class JobnoProvider extends GetConnect {
   Future<Response> deleteByJobnoId(int id) =>
       delete("$host/jobnotice/$id", headers: {"authorization" : jwtToken ?? ""});
 
+  Future<Response> Jobnoupdate(int id, Map data) =>
+      put("$host/jobnotice/$id", data,headers: {"authorization" : jwtToken ?? ""});
+
+  Future<Response> Jobnosave(Map data) =>
+      post("$host/post", data, headers: {"authorization" : jwtToken ?? ""});
+
 
 }

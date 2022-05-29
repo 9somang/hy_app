@@ -13,6 +13,21 @@ class JobnoController extends GetxController {
     findAllJobnotice();
   }
 
+  Future<void> Jobnosave(String title, String content)async{
+    Post post = await _jobnoRepository.Jobnosave(title,content);
+    if(post.id != null){
+      this.posts.add(post);
+    }
+  }
+
+  Future<void> Jobnoupdate(int id, String title, String content) async{
+    Post post = await _jobnoRepository.Jobnoupdate(id, title, content);
+    if(post.id != null) {
+      this.post.value = post;
+      this.posts.value = this.posts.map((e) => e.id == id ? post : e).toList();
+    }
+  }
+
   Future<void> deleteByJobnoId(int id) async{
     int result = await _jobnoRepository.deleteByJobnoId(id);
 

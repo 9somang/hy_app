@@ -1,19 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormArea extends StatelessWidget {
 
   final String hint;
   final funValidator;
-  final String? value;
+  final controller;
 
-  const CustomTextFormArea({required this.hint,required this.funValidator, this.value});
+  const CustomTextFormArea({required this.hint,required this.funValidator, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
-        initialValue: value ?? "",
+        controller: controller,
         maxLines: 15,
         validator:  funValidator,
         decoration: InputDecoration(

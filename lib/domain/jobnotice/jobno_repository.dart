@@ -1,13 +1,47 @@
+import 'dart:html';
+import 'package:flutter/services.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/CMRespDto.dart';
+import 'package:new_project/controllers/dto/SaveOrUpdateReqDto.dart';
 import 'package:new_project/domain/jobnotice/jobno_provider.dart';
-import 'package:new_project/utill/convert_utf8.dart';
 import '../post/post.dart';
-
-
 
 class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
+
+  Future<Post> Jobnosave(String title, String content)async{
+    SaveOrUpdateReqDto saveReqDto = SaveOrUpdateReqDto(title, content);
+    Response response = await _jobnoProvider.Jobnosave(saveReqDto.toJson());
+    dynamic body = response.body;
+    // dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+
+    if(cmRespDto.code == 1){
+      print("글쓰기 성공");
+      Post post = Post.fromJson(cmRespDto.data);
+      return post;
+    }else {
+      print("글쓰기 실패");
+      return Post();
+    }
+  }
+
+  Future<Post> Jobnoupdate(int id, String title, String content)async{
+    SaveOrUpdateReqDto updateReqDto = SaveOrUpdateReqDto(title, content);
+    Response response = await _jobnoProvider.Jobnoupdate(id, updateReqDto.toJson());
+    dynamic body = response.body;
+    // dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(body);
+
+    if(cmRespDto.code == 1){
+      print("수정성공");
+      Post post = Post.fromJson(cmRespDto.data);
+      return post;
+    }else {
+      print("수정실패");
+      return Post();
+    }
+  }
 
   Future<int> deleteByJobnoId(int id) async{
     Response response = await _jobnoProvider.deleteByJobnoId(id);

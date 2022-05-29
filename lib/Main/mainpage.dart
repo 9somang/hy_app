@@ -85,7 +85,8 @@ class _MainPageState extends State<MainPage> {
               leading: Icon(Icons.person_outline, color: Colors.grey[900]),
               title: Text('회원 정보'),
               onTap: () {
-                Get.to(UserInfo());
+                Navigator.pop(context);
+                Get.to(()=> UserInfo());
               },
               trailing: Icon(Icons.arrow_forward_ios),
             ),

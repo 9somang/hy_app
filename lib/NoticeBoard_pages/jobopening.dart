@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobopen_controller.dart';
-import 'package:new_project/view/pages/post/jobopdetail.dart';
-
-import '../controllers/post_controller.dart';
-import '../view/pages/post/jobnodetail.dart';
-import '../view/pages/post/write_page.dart';
+import 'package:new_project/view/pages/post/detail/jobopdetail.dart';
+import '../view/pages/post/write/jobopenwrite.dart';
 
 class JobOpening extends StatefulWidget {
   @override
@@ -31,7 +28,7 @@ class _JobOpeningState extends State<JobOpening> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              Get.to(WritePage());
+              Get.to(()=> JobopenWritePage());
             },
             icon: Icon(Icons.add),
             color: Colors.indigo,
