@@ -65,7 +65,7 @@ class jobhuntDetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        Get.to(JobhuntUpdatePage());
+                        Get.to(()=>JobhuntUpdatePage());
                       },
                       child: Text("수정")
                   ),

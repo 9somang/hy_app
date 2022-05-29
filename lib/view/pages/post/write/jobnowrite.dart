@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
+import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/uploader/file.dart';
 import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';
@@ -21,6 +22,7 @@ class JobnoWritePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     JobnoController jn = Get.find();
+    UserController u = Get.find();
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +55,7 @@ class JobnoWritePage extends StatelessWidget {
                   funpageRoute: () async{
                     if( _formkey.currentState!.validate()) {
                       await Get.find<JobnoController>()
-                          .Jobnosave(_title.text, _content.text, jn.post.value.user?.username);
+                          .Jobnosave(_title.text, _content.text, "${u.principal.value.username}" );
                       Get.off(()=>MainPage());
                     }
                   },
