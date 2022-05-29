@@ -9,6 +9,9 @@ import 'package:new_project/view/pages/post/update/jobnoupdate.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:new_project/view/pages/post/write/jobopenwrite.dart';
 
+import '../../../../utill/jwt.dart';
+import '../../../../utill/mamagertoken.dart';
+
 class jobhuntDetailPage extends StatelessWidget {
   final int? id;
 
@@ -41,10 +44,12 @@ class jobhuntDetailPage extends StatelessWidget {
                 child: Text("작성일 : ${jh.post.value.created}"),
               ),
               Container(
-                child: Text("작성자 : ${jh.post.value.user?.username}"),
+                child: Text("작성자 : ${jh.post.value.user?.username}(${jh.post.value.user?.email})"),
               ),
               SizedBox(height: 5),
-              u.principal.value.id == jh.post.value.user!.id ? Row(
+              if (u.principal.value.id == jh.post.value.user!.id
+                  || jwtToken == managertoken
+              ) Row(
                 children: [
 
                   SizedBox(width: 7),
@@ -71,7 +76,7 @@ class jobhuntDetailPage extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                 ],
-              ): SizedBox(),
+              )else SizedBox(),
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(

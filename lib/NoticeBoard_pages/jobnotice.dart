@@ -61,7 +61,7 @@ class _JobnoticeState extends State<Jobnotice> {
                         style: TextStyle(fontSize: 17),
                         ),
                       subtitle: Text("작성자 : ${jn.posts[index].user?.username}"
-                        ,style: TextStyle(fontSize: 13),
+                        ,style: TextStyle(fontSize: 13)
                         ),
                       leading: Text(
                         "${jn.posts[index].created}",

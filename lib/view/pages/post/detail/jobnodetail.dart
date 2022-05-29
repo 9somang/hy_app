@@ -42,7 +42,7 @@ class jobnoDetailPage extends StatelessWidget {
                 child: Text("작성일 : ${jn.post.value.created}"),
               ),
               Container(
-                child: Text("작성자 : ${jn.post.value.user?.username}"),
+                child: Text("작성자 : ${jn.post.value.user?.username}(${jn.post.value.user?.email})"),
               ),
               SizedBox(height: 5),
 
@@ -75,7 +75,6 @@ class jobnoDetailPage extends StatelessWidget {
                   SizedBox(width: 10),
                 ],
               ) else SizedBox(),
-
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(

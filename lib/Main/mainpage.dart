@@ -42,14 +42,15 @@ class _MainPageState extends State<MainPage> {
     UserController u = Get.put(UserController());
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0.0,
         title: Text('한양공업고등학교',
             style: TextStyle(
               fontFamily: 'GowunDodum',
               fontSize: 24,
-            )),
-        backgroundColor: Colors.indigo,
-        centerTitle: true,
-        elevation: 0.0,
+            )
+        ),
       ),
       drawer: Drawer(
         child: ListView(
