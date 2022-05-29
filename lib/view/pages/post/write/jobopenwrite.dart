@@ -5,6 +5,7 @@ import 'package:new_project/uploader/file.dart';
 import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../../controllers/jobopen_controller.dart';
+import '../../../../controllers/user_controller.dart';
 import '../../../components/custom_elevated_button.dart';
 import '../../../components/custom_text_form_field.dart';
 import '../../../components/customtextarea.dart';
@@ -19,6 +20,8 @@ class JobopenWritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     JobopenController jo = Get.find();
+    UserController u = Get.find();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -50,7 +53,7 @@ class JobopenWritePage extends StatelessWidget {
                 funpageRoute: () async {
                   if( _formkey.currentState!.validate()) {
                     await Get.find<JobopenController>()
-                        .Jobopensave(_title.text, _content.text, jo.post.value.user?.username);
+                        .Jobopensave(_title.text, _content.text, "${u.principal.value.username}");
                     Get.off(()=>MainPage());
 
                   }

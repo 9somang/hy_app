@@ -65,7 +65,7 @@ class jobopDetailPage extends StatelessWidget {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
-                        Get.to(JobopenUpdatePage());
+                        Get.to(()=>JobopenUpdatePage());
                       },
                       child: Text("수정")
                   ),

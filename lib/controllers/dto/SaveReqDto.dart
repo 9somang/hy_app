@@ -3,7 +3,7 @@ import '../../domain/user/user.dart';
 class SaveReqDto {
   final String? title;
   final String? content;
-  final User? username;
+  final String? username;
 
   SaveReqDto(this.title, this.content,this.username);
 

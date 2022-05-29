@@ -10,7 +10,7 @@ import '../post/post.dart';
 class JobhuntRepository {
   final JobhuntProvider _jobhuntProvider = JobhuntProvider();
 
-  Future<Post> Jobhuntsave(String title, String content, username)async{
+  Future<Post> Jobhuntsave(String title, String content,String username)async{
     SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobhuntProvider.Jobhuntsave(saveReqDto.toJson());
     dynamic body = response.body;

@@ -9,7 +9,7 @@ import '../post/post.dart';
 class JobopenRepository {
   final JobopProvider _jobopProvider = JobopProvider();
 
-  Future<Post> Jobopensave(String title, String content, username)async{
+  Future<Post> Jobopensave(String title, String content,String username)async{
     SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobopProvider.Jobopensave(saveReqDto.toJson());
     dynamic body = response.body;

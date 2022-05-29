@@ -9,7 +9,7 @@ import '../post/post.dart';
 class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
 
-  Future<Post> Jobnosave(String title, String content, username)async{
+  Future<Post> Jobnosave(String title, String content, String username)async{
     SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobnoProvider.Jobnosave(saveReqDto.toJson());
     dynamic body = response.body;

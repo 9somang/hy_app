@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobhunt_controller.dart';
+import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/uploader/file.dart';
 import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';
@@ -20,6 +21,7 @@ class JobhuntWritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     JobhuntController jh = Get.find();
+    UserController u = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -51,7 +53,7 @@ class JobhuntWritePage extends StatelessWidget {
                   funpageRoute: () async{
                     if( _formkey.currentState!.validate()) {
                       await Get.find<JobhuntController>()
-                          .Jobhuntsave(_title.text, _content.text, jh.post.value.user?.username);
+                          .Jobhuntsave(_title.text, _content.text, "${u.principal.value.username}");
                       Get.off(()=> MainPage());
 
                     }
