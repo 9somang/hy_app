@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
+import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/uploader/file.dart';
 import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';

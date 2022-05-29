@@ -36,10 +36,12 @@ class JobhuntUpdatePage extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormField(
+                  controller: _title,
                   hint: "제목",
                   funValidator: validateTitle(),
                 ),
                 CustomTextFormArea(
+                  controller: _content,
                   hint: "내용",
                   funValidator: validateContent(),
                 ),
@@ -47,12 +49,12 @@ class JobhuntUpdatePage extends StatelessWidget {
                 CustomElevatedButton(
                   text: "글 수정하기",
                   funpageRoute: () async{
-                    if( _formkey.currentState!.validate()) {
+                    if( _formkey.currentState!.validate())
                       await jh.Jobhuntupdate(
                           jh.post.value.id ?? 0, _title.text, _content.text);
                       // 같은 page가 있으면 이동할때 덮어씌우기 < 이게 레알 최고ㅁㄴ
                       Get.back(); //상태관리 Getx 라이브러리 - obs(데이터갱신)
-                    }
+
                   },
                 ),
               ],
