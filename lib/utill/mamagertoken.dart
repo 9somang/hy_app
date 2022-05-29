@@ -1,1 +1,1 @@
-String managertoken = "\$2b\$12\$9wXgtzxeq/5QCSaRZ6H8XetL3/7GI6.R1rZ4r1jUgjmlLqtlD.ezG";
+String managertoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Ilx1YWQwMFx1YjlhY1x1Yzc5MCIsInBhc3N3b3JkIjoiJDJiJDEyJDl3WGd0enhlcS81UUNTYVJaNkg4WGV0TDMvN0dJNi5SMXJaNHIxalVnam1sTHF0bEQuZXpHIn0.lFNg4jHqZoWMxZQOsYkfdDvtaHh6UZN2f1B1lGCWZKQ";

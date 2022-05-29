@@ -74,8 +74,7 @@ class jobnoDetailPage extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                 ],
-              )else if () Row()
-              else SizedBox(),
+              ) else SizedBox(),
 
               SizedBox(height:7),
               Expanded(
