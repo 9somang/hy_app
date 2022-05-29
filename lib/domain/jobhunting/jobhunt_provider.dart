@@ -13,6 +13,6 @@ class JobhuntProvider extends GetConnect {
       get("$host/jobhunt/$id", headers: {"authorization" : jwtToken ?? ""});
 
   Future<Response> deleteByJobhuntId(int id) =>
-      delete("$host/jobnotice/$id", headers: {"authorization" : jwtToken ?? ""});
+      delete("$host/jobhunt/$id", headers: {"authorization" : jwtToken ?? ""});
 
 }
