@@ -24,7 +24,7 @@ class JobnoUpdatePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         elevation: 0.0,
-        title: Text("글 수정하기"),
+        title: Text("취업게시판 글 수정하기"),
         centerTitle: true,
       ),
       body: Padding(

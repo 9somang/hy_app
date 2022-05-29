@@ -20,7 +20,14 @@ class JobhuntWritePage extends StatelessWidget {
     UserController u = Get.find();
     return Scaffold(
       appBar: AppBar(
+        title: Text('구직게시판 글쓰기',
+            style: TextStyle(
+              fontFamily: 'GowunDodum',
+              fontSize: 20,
+            )),
         backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0.0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

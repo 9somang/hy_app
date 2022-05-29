@@ -78,14 +78,7 @@ class jobopDetailPage extends StatelessWidget {
                   Radius.circular(4),
                 ),
               ),
-              child: OutlineButton(
-                onPressed: () {
-                  _DownloadDialog(context);
-                },
-                child: Text("업로드 된 파일 확인",
-                  style:TextStyle(fontSize: 12),
-                ),
-              ),
+
               width: 160,
               height: 30,
             ),
@@ -141,38 +134,4 @@ void _deleteDialog(BuildContext context) {
       });
 }
 
-
-
-void _DownloadDialog(BuildContext context) {
-  showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("파일을 다운로드 하시겠습니까?"),
-          content: SingleChildScrollView(
-            child: ListBody(
-                children: <Widget>[
-                  Text('{upload_file.path}을(를) \n다운로드 합니다.')
-                ]
-            ),
-          ),
-          actions: [
-            FlatButton(
-              child: Text("다운로드"),
-              onPressed: () {
-                Navigator.of(context).pop();
-                //다운로드 실행
-              },
-            ),
-            FlatButton(
-              child: Text("아니오"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            )
-          ],
-        );
-      });
-}
 

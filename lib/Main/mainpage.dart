@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('로그인상태:${u.isLogin}', // 한양공업고등학교
+        title: Text('한양공업고등학교',
             style: TextStyle(
               fontFamily: 'GowunDodum',
               fontSize: 24,
