@@ -150,8 +150,8 @@ void _logoutDialog(BuildContext context) {
               child: Text("예"),
               onPressed: () {
                 Navigator.of(context).pop();
+                u.logout();
                 Get.offAll(LoginPage());
-                u.logout;
               },
             ),
             FlatButton(

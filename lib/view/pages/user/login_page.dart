@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/domain/user/user_repository.dart';
+import 'package:new_project/utill/jwt.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../Main/mainpage.dart';
 import '../../components/custom_elevated_button.dart';
@@ -47,7 +48,7 @@ class LoginPage extends StatelessWidget {
               width: 170,
               height: 100,
               child: Text(
-                "로그인${u.isLogin}",
+                "로그인",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
 
               ),

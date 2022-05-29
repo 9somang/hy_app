@@ -14,11 +14,6 @@ class UserController extends GetxController {
     _userRepository.register(username, password, email);
   }
 
-  void logout() {
-    this.isLogin.value = false;
-    jwtToken = null;
-  }
-
 
   Future<int> login(String username, String password) async {
     User principal = await _userRepository.login(username, password);
@@ -30,5 +25,10 @@ class UserController extends GetxController {
     } else {
       return -1;
     }
+  }
+
+  void logout() {
+    this.isLogin.value = false;
+    jwtToken = null;
   }
 }
