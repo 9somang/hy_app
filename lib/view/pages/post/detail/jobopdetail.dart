@@ -30,7 +30,7 @@ class jobopDetailPage extends StatelessWidget {
 
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
+          child: Obx(()=>Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("${jo.post.value.title}",
@@ -38,7 +38,7 @@ class jobopDetailPage extends StatelessWidget {
               ),       //오른쪽 정렬로다가 날짜 및 아이디 가능하면 좋겟당
               Divider(),
               Container(
-                child: Text("${jo.post.value.created}"),
+                child: Text("작성일 : ${jo.post.value.created}"),
               ),
               Container(
                 child: Text("작성자 : ${jo.post.value.user?.username}"),
@@ -46,7 +46,6 @@ class jobopDetailPage extends StatelessWidget {
               SizedBox(height: 5),
               u.principal.value.id == jo.post.value.user!.id ? Row(
                 children: [
-
                   SizedBox(width: 7),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -98,6 +97,7 @@ class jobopDetailPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
         )
     );
   }
