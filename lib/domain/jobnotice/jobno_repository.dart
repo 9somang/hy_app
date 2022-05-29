@@ -1,15 +1,16 @@
 import 'package:flutter/services.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/CMRespDto.dart';
-import 'package:new_project/controllers/dto/SaveOrUpdateReqDto.dart';
+import 'package:new_project/controllers/dto/SaveReqDto.dart';
 import 'package:new_project/domain/jobnotice/jobno_provider.dart';
+import '../../controllers/dto/UpdateReqDto.dart';
 import '../post/post.dart';
 
 class JobnoRepository {
   final JobnoProvider _jobnoProvider = JobnoProvider();
 
-  Future<Post> Jobnosave(String title, String content)async{
-    SaveOrUpdateReqDto saveReqDto = SaveOrUpdateReqDto(title, content);
+  Future<Post> Jobnosave(String title, String content, username)async{
+    SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobnoProvider.Jobnosave(saveReqDto.toJson());
     dynamic body = response.body;
     // dynamic convertBody = convertUtf8ToObject(body);
@@ -26,7 +27,7 @@ class JobnoRepository {
   }
 
   Future<Post> Jobnoupdate(int id, String title, String content)async{
-    SaveOrUpdateReqDto updateReqDto = SaveOrUpdateReqDto(title, content);
+    UpdateReqDto updateReqDto = UpdateReqDto(title, content);
     Response response = await _jobnoProvider.Jobnoupdate(id, updateReqDto.toJson());
     dynamic body = response.body;
     // dynamic convertBody = convertUtf8ToObject(body);

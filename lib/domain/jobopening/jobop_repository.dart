@@ -2,14 +2,15 @@ import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/CMRespDto.dart';
 import 'package:new_project/utill/convert_utf8.dart';
 import 'package:new_project/domain/jobopening/jobop_provider.dart';
-import '../../controllers/dto/SaveOrUpdateReqDto.dart';
+import '../../controllers/dto/SaveReqDto.dart';
+import '../../controllers/dto/UpdateReqDto.dart';
 import '../post/post.dart';
 
 class JobopenRepository {
   final JobopProvider _jobopProvider = JobopProvider();
 
-  Future<Post> Jobopensave(String title, String content)async{
-    SaveOrUpdateReqDto saveReqDto = SaveOrUpdateReqDto(title, content);
+  Future<Post> Jobopensave(String title, String content, username)async{
+    SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobopProvider.Jobopensave(saveReqDto.toJson());
     dynamic body = response.body;
     // dynamic convertBody = convertUtf8ToObject(body);
@@ -26,7 +27,7 @@ class JobopenRepository {
   }
 
   Future<Post> Jobopenupdate(int id, String title, String content)async{
-    SaveOrUpdateReqDto updateReqDto = SaveOrUpdateReqDto(title, content);
+    UpdateReqDto updateReqDto = UpdateReqDto(title, content);
     Response response = await _jobopProvider.Jobopenupdate(id, updateReqDto.toJson());
     dynamic body = response.body;
     // dynamic convertBody = convertUtf8ToObject(body);

@@ -13,8 +13,8 @@ class JobhuntController extends GetxController {
     findAllJobhunting();
   }
 
-  Future<void> Jobhuntsave(String title, String content)async{
-    Post post = await _jobhuntRepository.Jobhuntsave(title,content);
+  Future<void> Jobhuntsave(String title, String content, username)async{
+    Post post = await _jobhuntRepository.Jobhuntsave(title,content, username);
     if(post.id != null){
       this.posts.add(post);
     }

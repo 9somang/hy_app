@@ -20,7 +20,7 @@ class JobnoWritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // JobnoController jn = Get.find();
+    JobnoController jn = Get.find();
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +53,7 @@ class JobnoWritePage extends StatelessWidget {
                   funpageRoute: () async{
                     if( _formkey.currentState!.validate()) {
                       await Get.find<JobnoController>()
-                          .Jobnosave(_title.text, _content.text);
+                          .Jobnosave(_title.text, _content.text, jn.post.value.user?.username);
                       Get.off(()=>MainPage());
                     }
                   },

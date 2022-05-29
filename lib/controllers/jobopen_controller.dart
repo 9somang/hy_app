@@ -13,8 +13,8 @@ class JobopenController extends GetxController {
     findAllJobOpening();
   }
 
-  Future<void> Jobopensave(String title, String content)async{
-    Post post = await _jobopenRepository.Jobopensave(title,content);
+  Future<void> Jobopensave(String title, String content, username)async{
+    Post post = await _jobopenRepository.Jobopensave(title,content, username);
     if(post.id != null){
       this.posts.add(post);
     }

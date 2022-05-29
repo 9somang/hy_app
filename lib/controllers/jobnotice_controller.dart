@@ -13,8 +13,8 @@ class JobnoController extends GetxController {
     findAllJobnotice();
   }
 
-  Future<void> Jobnosave(String title, String content)async{
-    Post post = await _jobnoRepository.Jobnosave(title,content);
+  Future<void> Jobnosave(String title, String content, username)async{
+    Post post = await _jobnoRepository.Jobnosave(title,content,username);
     if(post.id != null){
       this.posts.add(post);
     }

@@ -19,6 +19,7 @@ class JobhuntWritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    JobhuntController jh = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -50,7 +51,7 @@ class JobhuntWritePage extends StatelessWidget {
                   funpageRoute: () async{
                     if( _formkey.currentState!.validate()) {
                       await Get.find<JobhuntController>()
-                          .Jobhuntsave(_title.text, _content.text);
+                          .Jobhuntsave(_title.text, _content.text, jh.post.value.user?.username);
                       Get.off(()=> MainPage());
 
                     }
