@@ -19,7 +19,7 @@ Function validatePassword() {
   return (String? value) {
     if (value!.isEmpty) {
       return "비밀번호에 공백이 들어갈 수 없습니다.";
-    } else if (value.length > 12) {
+    } else if (value.length > 20) {
       return "비밀번호의 길이를 초과하였습니다.";
     } else if ( value.length < 4) {
       return "비밀번호의 최소 길이는 4자입니다.";
