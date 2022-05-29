@@ -1,13 +1,12 @@
 
-import 'package:intl/intl.dart';
 
 class User{
   final int? id;
   final String? username;
   final String? password;
   final String? email;
-  DateTime? created;
-  DateTime? updated;
+  final String? created;
+  final String? updated;
 
   User(
       {
@@ -25,7 +24,7 @@ class User{
       username = json['username'],
       password = json['password'],
       email = json['email'],
-      created = DateFormat("yyyy-mm-dd").parse(json['created']),
-      updated = DateFormat("yyyy-mm-dd").parse(json['updated']);
+      created = json['created'],
+      updated = json['updated'];
 
 }

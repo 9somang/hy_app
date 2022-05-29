@@ -8,8 +8,8 @@ class Post{
   final String? title;
   final String? content;
   final User? user;
-  DateTime? created;
-  DateTime? updated;
+  final String? created;
+  final String? updated;
 
   Post(
       {
@@ -27,8 +27,8 @@ class Post{
         title = json['title'],
         content = json['content'],
         user = User.fromJson(json["user"]),
-        created = DateFormat.yMMMd("yyyy-mm-dd").parse(json['created']),
-        updated = DateFormat.yMMMd("yyyy-mm-dd").parse(json['updated']);
+        created = json['created'],
+        updated = json['updated'];
 
 }
 
