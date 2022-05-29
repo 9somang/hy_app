@@ -27,8 +27,8 @@ class Post{
         title = json['title'],
         content = json['content'],
         user = User.fromJson(json["user"]),
-        created = DateFormat("yyyy/mm/dd").parse(json['created']),
-        updated = DateFormat("yyyy/mm/dd").parse(json['updated']);
+        created = DateFormat.yMMMd("yyyy-mm-dd").parse(json['created']),
+        updated = DateFormat.yMMMd("yyyy-mm-dd").parse(json['updated']);
 
 }
 
