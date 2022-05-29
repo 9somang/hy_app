@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
+import 'package:new_project/utill/jwt.dart';
 import 'package:new_project/view/pages/post/update/jobnoupdate.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:new_project/view/pages/post/write/jobopenwrite.dart';
+
+import '../../../../utill/mamagertoken.dart';
 
 class jobnoDetailPage extends StatelessWidget {
   final int? id;
@@ -42,7 +45,10 @@ class jobnoDetailPage extends StatelessWidget {
                 child: Text("작성자 : ${jn.post.value.user?.username}"),
               ),
               SizedBox(height: 5),
-              u.principal.value.id == jn.post.value.user!.id ? Row(
+
+              if (u.principal.value.id == jn.post.value.user!.id
+              || jwtToken == managertoken
+              ) Row(
                 children: [
                   SizedBox(width: 7),
                   ElevatedButton(
@@ -68,7 +74,8 @@ class jobnoDetailPage extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                 ],
-              ) : SizedBox(),
+              )else if () Row()
+              else SizedBox(),
 
               SizedBox(height:7),
               Expanded(
@@ -79,7 +86,7 @@ class jobnoDetailPage extends StatelessWidget {
             ],
           ),
           ),
-        )
+    )
     );
   }
 }
