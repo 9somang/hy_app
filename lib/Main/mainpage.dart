@@ -40,7 +40,6 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     // put은 없으면 만들고, 있으면 찾는다. 이미 만들었기때문에 find.
     UserController u = Get.put(UserController());
-
     return Scaffold(
       appBar: AppBar(
         title: Text('한양공업고등학교',
@@ -61,8 +60,8 @@ class _MainPageState extends State<MainPage> {
                   backgroundImage: AssetImage('assets/image/심벌마크_평면__배경제거.png'),
                   backgroundColor: Colors.white,
                 ),
-                accountName: Text('_username'), // 아이디 불러오기
-                accountEmail: Text('_userEmail'), // 이메일 불러오기
+                accountName: Text('${u.principal.value.username}'), // 아이디 불러오기
+                accountEmail: Text('${u.principal.value.email}'), // 이메일 불러오기
                decoration: BoxDecoration(
                     color: Colors.indigo,
                     borderRadius: BorderRadius.only(
