@@ -72,16 +72,6 @@ class jobhuntDetailPage extends StatelessWidget {
                   SizedBox(width: 10),
                 ],
               ): SizedBox(),
-              Container(
-                decoration: BoxDecoration(
-                  border:   Border.all(),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(4),
-                  ),
-                ),
-                width: 160,
-                height: 30,
-              ),
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(

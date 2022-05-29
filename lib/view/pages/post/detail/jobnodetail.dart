@@ -69,16 +69,7 @@ class jobnoDetailPage extends StatelessWidget {
                   SizedBox(width: 10),
                 ],
               ) : SizedBox(),
-              Container(    // row 바깥으로 업로드파일확인버튼을 빼놨음
-                decoration: BoxDecoration(
-                  border:   Border.all(),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(4),
-                  ),
-                ),
-                width: 160,
-                height: 30,
-              ),
+
               SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(
