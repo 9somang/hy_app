@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
-import 'package:new_project/uploader/file.dart';
-import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';
 
 import '../../../../controllers/user_controller.dart';
@@ -35,12 +33,6 @@ class JobnoWritePage extends StatelessWidget {
             key: _formkey,
             child: ListView(
               children: [
-                TextButton(
-                    onPressed: (){
-                      Get.to(FileUpload(title: '파일 업로드 페이지',));
-                    },
-                    child: Text("파일 업로드")
-                ),
                 CustomTextFormField(
                     controller: _title,
                     hint: "제목",

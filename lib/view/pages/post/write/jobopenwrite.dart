@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
-import 'package:new_project/uploader/file.dart';
-import 'package:new_project/uploader/filepickertest.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../../controllers/jobopen_controller.dart';
 import '../../../../controllers/user_controller.dart';
@@ -19,7 +17,6 @@ class JobopenWritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    JobopenController jo = Get.find();
     UserController u = Get.find();
 
     return Scaffold(
@@ -32,12 +29,6 @@ class JobopenWritePage extends StatelessWidget {
           key: _formkey,
           child: ListView(
             children: [
-              TextButton(
-                  onPressed: (){
-                      Get.to(FileUpload(title: '파일 업로드 페이지',));
-                  },
-                  child: Text("파일 업로드")
-              ),
               CustomTextFormField(
                   controller: _title,
                   hint: "제목",
