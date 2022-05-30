@@ -1,6 +1,4 @@
 
-import 'package:intl/intl.dart';
-
 import '../user/user.dart';
 
 class Post{
