@@ -22,7 +22,7 @@ class UserRepository {
     print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());
     print("${response.body}");
-    dynamic body = jsonDecode(response.body);
+    dynamic body = response.body;
     CMRespDto RegisterNewDto = CMRespDto.fromJson(body);
 
     if(RegisterNewDto.code ==1){
