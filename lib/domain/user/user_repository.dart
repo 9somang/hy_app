@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:new_project/controllers/dto/LoginReqDto.dart';
-import 'package:new_project/controllers/dto/RegisterNew.dart';
 import 'package:new_project/controllers/dto/RegisterReqDto.dart';
 import 'package:new_project/domain/user/user.dart';
 import 'package:new_project/domain/user/user_provider.dart';
@@ -20,12 +19,6 @@ class UserRepository {
   Future<void> register(String username, String password, String email) async {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     Response response = await _userProvider.register(registerReqDto.toJson());
-    dynamic body = response.body;
-    if (body.code == 1){
-      RegisterNew;
-    }else if(body.code == -1){
-      RegisterNew == false;
-    }
 
   }
 
