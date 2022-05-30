@@ -9,6 +9,7 @@ import 'package:new_project/domain/user/user_provider.dart';
 import 'package:new_project/utill/jwt.dart';
 
 import '../../controllers/dto/CMRespDto.dart';
+import '../../controllers/dto/RegisterNew.dart';
 import '../../utill/convert_utf8.dart';
 
 // 통신을 호출해서 응답되는 데이터를 가공 json > object (tojson)
@@ -20,6 +21,17 @@ class UserRepository {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());
+    print("${response.body}");
+    dynamic body = jsonDecode(response.body);
+    CMRespDto RegisterNewDto = CMRespDto.fromJson(body);
+
+    if(RegisterNewDto.code ==1){
+      RegisterNew().code = 1;
+    }else{
+      RegisterNew().code = -1;
+    }
+    print("${RegisterNew().code}");
+
   }
 
   Future<User> login(String username, String password) async {

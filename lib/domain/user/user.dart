@@ -6,7 +6,6 @@ class User{
   final String? email;
   final String? created;
   final String? updated;
-  final String? code1;
 
   User(
       {
@@ -16,7 +15,6 @@ class User{
       this.email,
       this.created,
       this.updated,
-      this.code1
       });
 
 
@@ -26,6 +24,5 @@ class User{
       password = json['password'],
       email = json['email'],
       created = json['created'],
-      updated = json['updated'],
-      code1 = json['code'];
+      updated = json['updated'];
 }
