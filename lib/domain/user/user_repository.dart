@@ -18,8 +18,8 @@ class UserRepository {
 
   Future<void> register(String username, String password, String email) async {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
+    print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());
-    CMRespDto cmRespDto = CMRespDto.fromJson(response.body);
   }
 
   Future<User> login(String username, String password) async {
