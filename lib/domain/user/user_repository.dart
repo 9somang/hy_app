@@ -20,10 +20,10 @@ class UserRepository {
   Future<void> register(String username, String password, String email) async {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     Response response = await _userProvider.register(registerReqDto.toJson());
-    CMRespDto RegisterNewDto = response.body;
-    if (RegisterNewDto.code == 1){
+    dynamic body = response.body;
+    if (body.code == 1){
       RegisterNew;
-    }else if(RegisterNewDto.code == -1){
+    }else if(body.code == -1){
       RegisterNew == false;
     }
 
