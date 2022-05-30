@@ -15,7 +15,7 @@ class User{
       this.password,
       this.email,
       this.created,
-      this.updated
+      this.updated,
       });
 
 
