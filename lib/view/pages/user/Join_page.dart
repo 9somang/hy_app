@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/dto/CMRespDto.dart';
-import 'package:new_project/controllers/dto/RegisterNew.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../controllers/user_controller.dart';
@@ -94,6 +93,14 @@ class JoinPage extends StatelessWidget {
                          u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
                          showToast('회원가입이 완료 되었습니다.');
                          Get.to(LoginPage());
+                       if(CMRespDto().code == 1) {
+                         u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
+                         showToast('회원가입이 완료 되었습니다.');
+                         Get.to(LoginPage());
+                       }else if(CMRespDto().code == -1){
+                         showToast('회원가입을 실패하였습니다.');
+                       }else{}
+
                    },
                ),
                TextButton(onPressed: (){
