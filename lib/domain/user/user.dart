@@ -1,4 +1,5 @@
 
+
 class User{
   final int? id;
   final String? username;
@@ -14,7 +15,7 @@ class User{
       this.password,
       this.email,
       this.created,
-      this.updated,
+      this.updated
       });
 
 
