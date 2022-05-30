@@ -88,12 +88,11 @@ class JoinPage extends StatelessWidget {
                CustomElevatedButton(
                    text: "회원가입",
                    funpageRoute: () {
-                     _formkey.currentState!.validate();
-                     if(  u.principal.value.code1 == 1) {
+                     if( _formkey.currentState!.validate() && u.principal.value.code1 == 1) {
                        u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
                        Get.to(LoginPage());
                        showToast('회원가입이 완료 되었습니다.');
-                     }else if(u.principal.value.code1 == -1){
+                     }else if (u.principal.value.code1 == -1){
                        showToast('회원가입을 실패하였습니다.');
                      }else {};
                    },
