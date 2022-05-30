@@ -7,9 +7,9 @@ import 'package:new_project/controllers/dto/RegisterReqDto.dart';
 import 'package:new_project/domain/user/user.dart';
 import 'package:new_project/domain/user/user_provider.dart';
 import 'package:new_project/utill/jwt.dart';
+import 'package:new_project/utill/register_code.dart';
 
 import '../../controllers/dto/CMRespDto.dart';
-import '../../controllers/dto/RegisterNew.dart';
 import '../../utill/convert_utf8.dart';
 
 // 통신을 호출해서 응답되는 데이터를 가공 json > object (tojson)
@@ -21,16 +21,10 @@ class UserRepository {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());
-    print("test: ${response.body.code}");
+
     dynamic body = response.body;
     CMRespDto RegisterNewDto = CMRespDto.fromJson(body);
-
-    if(RegisterNewDto.code == 1){
-      RegisterNew().code = 1;
-    }else{
-      RegisterNew().code = -1;
-    }
-    print("test : ${RegisterNew().code}");
+    register_code = RegisterNewDto.code;
 
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:new_project/controllers/dto/RegisterNew.dart';
 import 'package:new_project/domain/user/user_repository.dart';
+import 'package:new_project/utill/register_code.dart';
 import 'package:new_project/utill/validator_util.dart';
 import '../../../controllers/user_controller.dart';
 import '../../components/custom_elevated_button.dart';
@@ -89,12 +89,16 @@ class JoinPage extends StatelessWidget {
                CustomElevatedButton(
                    text: "회원가입",
                    funpageRoute: () {
-                     if(_formkey.currentState!.validate() && RegisterNew().code == 1) {
+                     if(_formkey.currentState!.validate()) {
                        u.register(_username.text.trim(), _password.text.trim(),
                            _email.text.trim());
-                       Get.to(LoginPage());
-                       showToast('회원가입이 완료 되었습니다.');
-                     }else showToast('회원가입 실패');
+                       if (register_code == 1) {
+                         Get.to(LoginPage());
+                         showToast('회원가입이 완료 되었습니다.');
+                       } else {
+                         showToast('중북된 사용자가 있습니다.');
+                       }
+                     }
                    },
                ),
                TextButton(onPressed: (){
