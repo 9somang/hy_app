@@ -1,5 +1,5 @@
 class RegisterNew{
-  int code = 1;
+  int? code;
 
   Code(int code){
     this.code;

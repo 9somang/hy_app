@@ -21,16 +21,16 @@ class UserRepository {
     RegisterReqDto registerReqDto = RegisterReqDto(username, password, email);
     print(registerReqDto.toJson());
     Response response = await _userProvider.register(registerReqDto.toJson());
-    print("${response.body}");
+    print("test: ${response.body.code}");
     dynamic body = response.body;
     CMRespDto RegisterNewDto = CMRespDto.fromJson(body);
 
-    if(RegisterNewDto.code ==1){
+    if(RegisterNewDto.code == 1){
       RegisterNew().code = 1;
     }else{
       RegisterNew().code = -1;
     }
-    print("${RegisterNew().code}");
+    print("test : ${RegisterNew().code}");
 
   }
 
