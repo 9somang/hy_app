@@ -91,8 +91,8 @@ class JoinPage extends StatelessWidget {
                      if( _formkey.currentState!.validate()) {
                        u.register(_username.text.trim(),_password.text.trim(),_email.text.trim());
                        Get.to(LoginPage());
+                       showToast('회원가입이 완료 되었습니다.');
                      }
-                     showToast('회원가입이 완료 되었습니다.');
                    },
                ),
                TextButton(onPressed: (){
