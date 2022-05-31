@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/jobhunt_controller.dart';
 import 'package:new_project/view/pages/post/detail/jobhuntdetail.dart';
-import '../controllers/post_controller.dart';
 import '../view/pages/post/write/jobhuntwrite.dart';
 
 class JobHunting extends StatefulWidget {
