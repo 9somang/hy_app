@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:new_project/utill/jwt.dart';
 
-const host = "http://10.0.2.2:5000/post";
+const host = "http://13.209.230.98:5000/post";
 
 // 통신
 class JobhuntProvider extends GetConnect {
