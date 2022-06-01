@@ -13,6 +13,7 @@ class JobnoRepository {
     SaveReqDto saveReqDto = SaveReqDto(title, content, username);
     Response response = await _jobnoProvider.Jobnosave(saveReqDto.toJson());
     dynamic body = response.body;
+    print(body);
     // dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
 

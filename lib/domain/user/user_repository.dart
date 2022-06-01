@@ -38,9 +38,13 @@ class UserRepository {
     print(loginReqDto.toJson());
     Response response = await _userProvider.login(loginReqDto.toJson());
     dynamic headers = response.headers; // headers 함수 = 서버에서 보내는 응답헤더;
-    dynamic body = jsonDecode(response.body);
-    print(response.body);
-    print("test: ${body}");
+    dynamic body;
+    print("body ${response.body.runtimeType}");
+    if (response.body.runtimeType == String) {
+      body = jsonDecode(response.body);
+    } else {
+      body = response.body;
+    }
     print("test: ${headers}");
 
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
