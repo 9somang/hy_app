@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/domain/user/user_repository.dart';
@@ -64,7 +65,7 @@ class LoginPage extends StatelessWidget {
   Widget _loginForm() {
     // 항상 return 타입은 최상위보호타입으로 잡아주는게좋음(widget)
     return Form(
-      // 나중에 DB 서버에 한번에 날려야 하기 때문에 form안에 한꺼번에 감싸버려버려
+      // 나중에 DB 서버에 한번에 날려야 하기 때문에 form안에 한꺼번에 감쌈
       key: _formkey,
       child: Column(
         children: [
@@ -84,11 +85,10 @@ class LoginPage extends StatelessWidget {
               if (_formkey.currentState!.validate()) {
                 int result =
                     await u.login(_username.text.trim(), _password.text.trim());
+                print(result);
                 if (result == 1) {
-                  Get.to(() => MainPage());
-                }else {
-                  Get.snackbar("로그인 시도", "로그인을 실패하였습니다");
-                }
+                  Get.offAll(MainPage());
+                }else {showToastlogin('로그인 실패,\n 다시 시도해주세요');}
               }
             },
           ),
@@ -107,6 +107,16 @@ class LoginPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void showToastlogin(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        backgroundColor: Colors.indigo,
+        textColor: Colors.white,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM
     );
   }
 }

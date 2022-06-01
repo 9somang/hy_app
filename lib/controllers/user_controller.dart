@@ -1,7 +1,9 @@
 
 import 'package:get/get.dart';
+import 'package:new_project/controllers/dto/RegisterReqDto.dart';
 import 'package:new_project/domain/user/user_repository.dart';
 import 'package:new_project/utill/jwt.dart';
+import 'package:new_project/utill/register_code.dart';
 
 import '../domain/user/user.dart';
 
@@ -10,8 +12,8 @@ class UserController extends GetxController {
   final RxBool isLogin = false.obs; // UI가 관찰가능한 변수 => 변경 => UI가 자동업데이트
   final principal = User().obs;
 
-  Future<void> register(String username, String password, String email  ) async {
-    _userRepository.register(username, password, email);
+  Future<void> register(String username, String password, String email  )async{
+    await _userRepository.register(username, password, email);
   }
 
 

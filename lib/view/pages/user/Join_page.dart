@@ -88,15 +88,16 @@ class JoinPage extends StatelessWidget {
                ),
                CustomElevatedButton(
                    text: "회원가입",
-                   funpageRoute: () {
+                   funpageRoute: ()async{
                      if(_formkey.currentState!.validate()) {
-                       u.register(_username.text.trim(), _password.text.trim(),
+                       await u.register(_username.text.trim(), _password.text.trim(),
                            _email.text.trim());
-                       if (register_code == 1) {
-                         Get.to(LoginPage());
+                       int? result = await register_code;
+                       if (result == 1){
                          showToast('회원가입이 완료 되었습니다.');
+                         Get.to(()=> LoginPage());
                        } else {
-                         showToast('중북된 사용자가 있습니다.');
+                         showToast1('회원가입 실패, 다시 시도해주세요');
                        }
                      }
                    },
@@ -111,6 +112,16 @@ class JoinPage extends StatelessWidget {
          );
   }
   void showToast(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        backgroundColor: Colors.indigo,
+        textColor: Colors.white,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM
+    );
+  }
+
+  void showToast1(String message) {
     Fluttertoast.showToast(
         msg: message,
         backgroundColor: Colors.indigo,

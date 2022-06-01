@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/Main/mainpage.dart';
 import 'package:new_project/controllers/jobhunt_controller.dart';
-import 'package:new_project/controllers/jobnotice_controller.dart';
 import 'package:new_project/controllers/user_controller.dart';
 import 'package:new_project/view/pages/post/update/jobhuntupdate.dart';
-import 'package:new_project/view/pages/post/update/jobnoupdate.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:new_project/view/pages/post/write/jobopenwrite.dart';
-
 import '../../../../utill/jwt.dart';
 import '../../../../utill/mamagertoken.dart';
 
@@ -44,7 +39,7 @@ class jobhuntDetailPage extends StatelessWidget {
                 child: Text("작성일 : ${jh.post.value.created}"),
               ),
               Container(
-                child: Text("작성자 : ${jh.post.value.user?.username}(${jh.post.value.user?.email})"),
+                child: Text("작성자 : ${jh.post.value.user?.username} (이메일 : ${jh.post.value.user?.email})"),
               ),
               SizedBox(height: 5),
               if (u.principal.value.id == jh.post.value.user!.id

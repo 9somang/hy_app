@@ -44,7 +44,7 @@ class jobopDetailPage extends StatelessWidget {
                 child: Text("작성일 : ${jo.post.value.created}"),
               ),
               Container(
-                child: Text("작성자 : ${jo.post.value.user?.username}(${jo.post.value.user?.email})"),
+                child: Text("작성자 : ${jo.post.value.user?.username} (이메일 : ${jo.post.value.user?.email})"),
               ),
               SizedBox(height: 5),
               if (u.principal.value.id == jo.post.value.user!.id

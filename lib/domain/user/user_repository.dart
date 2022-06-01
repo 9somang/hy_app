@@ -27,6 +27,9 @@ class UserRepository {
 
     CMRespDto RegisterNewDto = CMRespDto.fromJson(body);
     register_code = RegisterNewDto.code;
+    print("RegisterNewDto : ${RegisterNewDto.code}");
+    print("register_code: ${register_code}");
+    register_code = RegisterNewDto.code;
     print(register_code);
   }
 
@@ -36,12 +39,11 @@ class UserRepository {
     Response response = await _userProvider.login(loginReqDto.toJson());
     dynamic headers = response.headers; // headers 함수 = 서버에서 보내는 응답헤더;
     dynamic body = jsonDecode(response.body);
+    print(response.body);
     print("test: ${body}");
     print("test: ${headers}");
 
-    // dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(body);
-
     if (cmRespDto.code == 1) {
       User principal = User.fromJson(cmRespDto.data);
 
