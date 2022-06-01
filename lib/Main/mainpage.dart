@@ -82,8 +82,8 @@ class _MainPageState extends State<MainPage> {
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.person_outline, color: Colors.grey[900]),
-              title: Text('회원 정보'),
+              leading: Icon(Icons.person, color: Colors.grey[900]),
+              title: Text('회원 정보 보기'),
               onTap: () {
                 Navigator.pop(context);
                 Get.to(()=> UserInfo());
@@ -93,8 +93,8 @@ class _MainPageState extends State<MainPage> {
             Divider(),
             ListTile(
               leading:
-                  Icon(Icons.account_tree_outlined, color: Colors.grey[900]),
-              title: Text('기타 정보'),
+                  Icon(Icons.question_mark_rounded, color: Colors.grey[900]),
+              title: Text('기타 앱 정보 및\n간단한 앱 사용법'),
               onTap: () {
                 Get.to(Questions());
               },

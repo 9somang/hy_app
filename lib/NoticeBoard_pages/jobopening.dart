@@ -10,6 +10,8 @@ class JobOpening extends StatefulWidget {
 }
 
 class _JobOpeningState extends State<JobOpening> {
+  var refreshKey = GlobalKey<RefreshIndicatorState>();
+
   @override
   Widget build(BuildContext context) {
     JobopenController jopen = Get.put(JobopenController());
@@ -36,28 +38,34 @@ class _JobOpeningState extends State<JobOpening> {
         ],
       ),
       body: Obx(
-        () => ListView.separated(
-          itemCount: jopen.posts.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () async{
-                await jopen.findByopenId(jopen.posts[index].id!);
-                Get.to(jobopDetailPage(jopen.posts[index].id));
-              },
-              title: Text("${jopen.posts[index].title}",
-                style: TextStyle(fontSize: 17),
-              ),
-              subtitle: Text("작성자 : ${jopen.posts[index].user?.username}",
-                style: TextStyle(fontSize: 13),
-              ),
-              leading: Text("${jopen.posts[index].created}",
-                style: TextStyle(fontSize: 8),
-              ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return Divider();
-          },
+        () => RefreshIndicator(
+            key: refreshKey,
+            onRefresh: ()async{
+              await jopen.findAllJobOpening();
+            },
+          child: ListView.separated(
+            itemCount: jopen.posts.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () async{
+                  await jopen.findByopenId(jopen.posts[index].id!);
+                  Get.to(jobopDetailPage(jopen.posts[index].id));
+                },
+                title: Text("${jopen.posts[index].title}",
+                  style: TextStyle(fontSize: 17),
+                ),
+                subtitle: Text("작성자 : ${jopen.posts[index].user?.username}",
+                  style: TextStyle(fontSize: 13),
+                ),
+                leading: Text("${jopen.posts[index].created}",
+                  style: TextStyle(fontSize: 8),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return Divider();
+            },
+          ),
         ),
       ),
     );

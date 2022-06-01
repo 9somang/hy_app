@@ -46,7 +46,7 @@ class jobopDetailPage extends StatelessWidget {
               Container(
                 child: Text("작성자 : ${jo.post.value.user?.username} (이메일 : ${jo.post.value.user?.email})"),
               ),
-              SizedBox(height: 5),
+              Divider(),
               if (u.principal.value.id == jo.post.value.user!.id
                   || jwtToken == managertoken
               ) Row(
@@ -73,9 +73,8 @@ class jobopDetailPage extends StatelessWidget {
                       },
                       child: Text("수정")
                   ),
-                  SizedBox(width: 10),
                 ],
-              )else SizedBox(),
+              )else SizedBox() ,
             SizedBox(height:7),
               Expanded(
                   child: SingleChildScrollView(
